@@ -1,0 +1,39 @@
+<h1 class="ff-reg-main-h ff-reg-steps">A bit more about you</h1>
+
+<md-input-container class="md-block">
+  <label>Mobile</label>
+  <input
+    type="text"
+    ng-model="steps1.mobile"
+    ng-change="steps1.update('mobile')">
+</md-input-container>
+
+<md-input-container class="md-block" flex>
+  <label>Gender</label>
+  <md-select
+    aria-label="Gender"
+    ng-model="steps1.gender"
+    ng-change="steps1.update('gender')">
+    <md-option
+      ng-repeat="gender in steps1.genders"
+      value="{{gender.value}}">
+      {{gender.label}}
+    </md-option>
+  </md-select>
+</md-input-container>
+
+<div layout="column" class="ff-reg-datepicker">
+  <label class="md-caption">Date of birth</label>
+  <md-datepicker
+    ng-model="steps1.dob"
+    ng-change="steps1.update('dob')">
+  </md-datepicker>
+</div>
+
+<md-input-container class="md-block">
+  <label>Previous name</label>
+  <input
+    type="text"
+    ng-model="steps1.previousName"
+    ng-change="steps1.update('previousName')">
+</md-input-container>

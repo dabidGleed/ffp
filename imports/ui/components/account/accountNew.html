@@ -1,0 +1,70 @@
+<md-dialog aria-label="Add new user" class="ff-popup">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 flex>Add user</h2>
+      <md-button
+        aria-label="Close"
+        class="md-icon-button"
+        ng-click="accountnew.cancel()">
+        <i class="material-icons">close</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content>
+    <div layout="column">
+      <md-input-container class="md-block">
+        <label>First name</label>
+        <input
+          required=""
+          type="text"
+          name="first"
+          ng-model="">
+        <div ng-messages="">
+          <div ng-message-exp="['required']">
+            You must enter your first name
+          </div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Last name</label>
+        <input
+          required=""
+          type="text"
+          name="last"
+          ng-model="">
+        <div ng-messages="">
+          <div ng-message-exp="['required']">
+            You must enter your last name
+          </div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Email</label>
+        <input
+          required=""
+          type="email"
+          name="email"
+          minlength="10"
+          maxlength="100"
+          ng-pattern="/^.+@.+\..+$/"
+          ng-model="">
+        <div class="ff-hint">
+          Login details will be sent to the email address provided above.
+        </div>
+        <div ng-messages="">
+          <div
+            ng-message-exp="['required','minlength','maxlength','pattern']">
+            You must enter a valid email address
+          </div>
+        </div>
+      </md-input-container>
+    </div>
+
+    <md-button class="md-raised md-primary ff-popup-btn" aria-label="Add user">
+      Add user
+    </md-button>
+  </md-dialog-content>
+</md-dialog>

@@ -1,0 +1,230 @@
+<md-card md-whiteframe class="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <md-button
+        class="md-icon-button"
+        aria-label="Back"
+        ui-sref="portal.activities.index">
+         <i class="material-icons">arrow_back</i>
+      </md-button>
+      &nbsp;&nbsp;Add activity
+    </div>
+  </md-toolbar>
+  <md-content class="md-padding">
+    <div class="md-padding">
+      <div>
+        <md-button class="md-fab md-mini md-primary" aria-label="Step">
+           <i class="material-icons">check</i>
+        </md-button>
+        Add activity details
+      </div>
+      <div>
+        <div layout="row">
+          <div flex="1" class="md-padding">
+            <md-input-container class="md-block">
+              <label>Activity name*</label>
+              <input ng-model="thing">
+            </md-input-container>
+          </div>
+          <div flex="1" class="md-padding">
+            <md-input-container class="md-block" flex>
+              <label>Type of activity*</label>
+              <md-select ng-model="thong">
+                <md-option value="1">Activity 1</md-option>
+                <md-option value="2">Activity 2</md-option>
+                <md-option value="3">Activity 3</md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+        </div>
+        <div layout="row" flex>
+          <div flex="1" class="md-padding">
+            <div><label class="md-caption">Date*</label></div>
+            <md-datepicker ng-model="theng"></md-datepicker>
+          </div>
+          <div flex="1" class="md-padding">
+            <md-input-container class="md-block">
+              <label>Staff contact</label>
+              <input ng-model="thung">
+            </md-input-container>
+          </div>
+        </div>
+        <div layout="row" flex>
+          <div flex="1" class="md-padding">
+            <md-input-container class="md-block">
+              <label>Other notes</label>
+              <textarea ng-model="thiing" rows="5"></textarea>
+            </md-input-container>
+          </div>
+          <div flex="1"></div>
+        </div>
+        <div layout="row">
+          <md-button class="md-raised md-primary">Continue</md-button>
+          <md-button>Cancel</md-button>
+        </div>
+      </div>
+    </div>
+    <div class="md-padding">
+      <div>
+        <md-button class="md-fab md-mini md-primary" aria-label="Step">
+           <i class="material-icons">check</i>
+        </md-button>
+        Add alumni
+      </div>
+      <div>
+
+        <md-card md-whiteframe class="ff-card" id="ff-card">
+          <md-toolbar class="md-card-image">
+            <div class="md-toolbar-tools">
+                <h2>0 alumni added of {{activityAdd.alumni.length}}</h2>
+                <md-button
+                  aria-label="Select all"
+                  ng-hide="activityAdd.hasElementsCheckedClass() === 'active'"
+                  ng-click="activityAdd.selectAll()">
+                  ADD ALL
+                </md-button>
+                <md-button
+                  aria-label="Select none"
+                  ng-show="activityAdd.hasElementsCheckedClass() === 'active'"
+                  ng-click="activityAdd.selectNone()">
+                  REMOVE ALL
+                </md-button>
+              <span flex></span>
+              <md-button aria-label="Clear filters">
+                CLEAR FILTERS
+              </md-button>
+              <md-button
+                class="md-icon-button"
+                aria-label="Filters"
+                ng-click="activityAdd.toggleTab()">
+                 <i class="material-icons">filter_list</i>
+              </md-button>
+              <md-input-container class="ff-searchinput" ng-show="activityAdd.showSearch">
+                <input ng-model="user.email" type="search" aria-label="Email">
+              </md-input-container>
+              <md-button
+                class="md-icon-button"
+                aria-label="Search"
+                ng-click="activityAdd.toggleSearch()">
+                 <i class="material-icons">search</i>
+              </md-button>
+            </div>
+          </md-toolbar>
+
+          <md-subheader class="ff-tablesubheader" md-whiteframe="1">
+            <div class="ff-imgcheck">
+              <md-checkbox
+                aria-label="Select all"
+                ng-model="activityAdd.selectAllCheck"
+                ng-click="activityAdd.toggleSelectAll()">
+              </md-checkbox>
+            </div>
+            <div class="ff-text">Name</div>
+            <div class="ff-text">Surname</div>
+            <div class="ff-text">Email</div>
+            <div class="ff-text">Mobile Number</div>
+          </md-subheader>
+
+          <md-virtual-repeat-container
+            class="ff-tablelist"
+            ng-style="activityAdd.height">
+
+            <div
+              class="ff-tablerow"
+              md-virtual-repeat="a in activityAdd.alumni | filter: { display: true }">
+
+              <div class="ff-imgcheck" ng-class="activityAdd.hasElementsCheckedClass()">
+                <md-checkbox ng-model="a.isChecked" aria-label="Select"></md-checkbox>
+                <img src="{{a.image}}">
+              </div>
+
+              <div class="ff-text">{{a.Name}}</div>
+              <div class="ff-text">{{a.Last_name__c}}</div>
+              <div class="ff-text">{{a.Email__c}}</div>
+              <div class="ff-text">{{a.Mobile__c}}</div>
+
+              <div class="ff-actions">
+                <md-button
+                  class="md-icon-button"
+                  aria-label="Notes"
+                  ng-click="activityAdd.showNotesSheet(a.notes)">
+                   <i class="material-icons">note</i>
+                </md-button>
+                <md-button class="md-icon-button" ui-sref="portal.activityAdd.profile">
+                  <i
+                    class="material-icons"
+                    aria-label="View alumnus profile">perm_identity
+                  </i>
+                </md-button>
+                <md-menu
+                  md-offset="0 50"
+                  md-position-mode="target-right target">
+
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Open menu"
+                    ng-click="activityAdd.openMenu($mdOpenMenu, $event)">
+                     <i class="material-icons">more_vert</i>
+                  </md-button>
+
+                  <md-menu-content>
+                    <md-menu-item>
+                      <md-button aria-label="Compose email">
+                         <i class="material-icons">mode_edit</i>
+                        Compose mail
+                      </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button aria-label="Send SMS">
+                         <i class="material-icons">textsms</i>
+                        Send SMS
+                      </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button aria-label="Invite to a new activity">
+                         <i class="material-icons">today</i>
+                        Invite to a new activity
+                      </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button aria-label="Invite to an existing activity">
+                         <i class="material-icons">today</i>
+                        Invite to an existing activity
+                      </md-button>
+                    </md-menu-item>
+                    <md-divider></md-divider>
+                    <md-menu-item>
+                      <md-button aria-label="Remove alumnus">
+                         <i class="material-icons">delete</i>
+                        Remove alumnus
+                      </md-button>
+                    </md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+              </div>
+            </div>
+          </md-virtual-repeat-container>
+
+        </md-card>
+
+
+      </div>
+    </div>
+    <div class="md-padding">
+      <md-button class="md-fab md-mini md-primary" aria-label="Step">
+         <i class="material-icons">check</i>
+      </md-button>
+      Review and save
+    </div>
+    <div class="md-padding">
+      <div layout="row">
+        <div flex="1">
+          details
+        </div>
+        <div flex="1">
+          list of alumni
+        </div>
+      </div>
+    </div>
+  </md-content>
+</md-card>

@@ -1,0 +1,96 @@
+<div ui-view="" ng-if="registerSteps.showWelcome()"></div>
+
+<section layout="row" flex ng-if="!registerSteps.showWelcome()">
+  <div flex="33">
+    <div>
+      <img
+        alt="Avatar"
+        class="ff-avatar"
+        ng-if="registerSteps.formData.image"
+        ng-src="{{registerSteps.formData.image}}">
+
+      <div class="ff-icon-avatar" ng-if="!registerSteps.formData.image">
+        <i class="material-icons">add_a_photo</i>
+      </div>
+    </div>
+    <h4 ng-if="registerSteps.showNavigation()">
+      {{registerSteps.formData.firstName}} {{registerSteps.formData.lastName}}
+    </h4>
+    <p ng-if="registerSteps.showNavigation()">
+      {{registerSteps.formData.email}}
+    </p>
+  </div>
+  <div flex="66">
+    <div ng-if="registerSteps.showNavigation()">
+      <a
+        class="ff-stepcircle"
+        ui-sref="register.steps.1"
+        ng-disabled="registerSteps.canNavigateToStep(1)"
+        ng-class="registerSteps.formData.activeStep === 1 ? 'active' : ''">
+        1
+      </a>
+      <a
+        class="ff-stepcircle"
+        ui-sref="register.steps.2"
+        ng-disabled="registerSteps.formData.canNavigateToStep(2)"
+        ng-class="registerSteps.formData.activeStep === 2 ? 'active' : ''">
+        2
+      </a>
+      <a
+        class="ff-stepcircle"
+        ui-sref="register.steps.3"
+        ng-disabled="registerSteps.formData.canNavigateToStep(3)"
+        ng-class="registerSteps.formData.activeStep === 3 ? 'active' : ''">
+        3
+      </a>
+      <a
+        class="ff-stepcircle"
+        ui-sref="register.steps.4"
+        ng-disabled="registerSteps.formData.canNavigateToStep(4)"
+        ng-class="registerSteps.formData.activeStep === 4 ? 'active' : ''">
+        4
+      </a>
+      <a
+        class="ff-stepcircle"
+        ui-sref="register.steps.5"
+        ng-disabled="registerSteps.formData.canNavigateToStep(5)"
+        ng-class="registerSteps.formData.activeStep === 5 ? 'active' : ''">
+        5
+      </a>
+      <a
+        class="ff-stepcircle"
+        ui-sref="register.steps.6"
+        ng-disabled="registerSteps.formData.canNavigateToStep(6)"
+        ng-class="registerSteps.formData.activeStep === 6 ? 'active' : ''">
+        6
+      </a>
+      <a
+        href
+        class="ff-stepcircle"
+        ng-click="registerSteps.arrowNext()">
+        <i class="material-icons">keyboard_arrow_right</i>
+      </a>
+    </div>
+
+    <div ui-view=""></div>
+    <md-divider
+      class="ff-reg-divider"
+      ng-if="registerSteps.showNavigation()">
+    </md-divider>
+
+    <div layout="row" ng-if="registerSteps.showNavigation()">
+      <md-button
+        ng-click="registerSteps.back()"
+        ng-disabled="registerSteps.isFirst()">
+        Back
+      </md-button>
+      <md-button
+        class="md-raised md-primary"
+        ng-click="registerSteps.next()"
+        ng-disabled="registerSteps.isLast()">
+        Next
+      </md-button>
+      <md-button ng-click="registerSteps.finish()">I'm done</md-button>
+    </div>
+  </div>
+</section>

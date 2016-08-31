@@ -1,0 +1,160 @@
+<md-card md-whiteframe class="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2>SCHOOL SUBSCRIPTION DETAILS</h2>
+    </div>
+  </md-toolbar>
+  <md-content layout="row" flex class="md-padding">
+    <div flex="2">
+      <div class="md-padding">
+        <div><b>Star date</b></div>
+        <div>Monday, 1st February 2016</div>
+      </div>
+      <div class="md-padding">
+        <div><b>End date</b></div>
+        <div>Monday, 29th February 2016</div>
+      </div>
+      <div class="md-padding">
+        (1 year, 3 months and 30 days left until your membership expires)
+      </div>
+    </div>
+    <div flex="1">
+      <div layout="column" class="ff-circlewrap">
+        <div class="ff-circle">
+          <div class="ff-circlenumber">100</div>
+          <div class="ff-circleinnerlabel">Days<br>left</div>
+        </div>
+      </div>
+    </div>
+  </md-content>
+  <md-divider></md-divider>
+  <md-content layout="column" flex class="md-padding ff-style-m-l-15">
+    <a href="#">Change password</a>
+    <a href="#">Change email address</a>
+  </md-content>
+</md-card>
+
+<md-card md-whiteframe class="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2 flex>USERS</h2>
+      <md-button
+        class="md-icon-button"
+        aria-label="Filters"
+        ng-click="account.openAccount()">
+        <i class="material-icons">add</i>
+      </md-button>
+      <md-input-container
+        class="ff-searchinput"
+        ng-show="account.showSearch">
+        <input
+          type="search"
+          aria-label="Search"
+          ng-model="account.searchText">
+      </md-input-container>
+      <md-button
+        aria-label="Search"
+        class="md-icon-button"
+        ng-click="account.toggleSearch()">
+        <i class="material-icons">search</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="ACTIVE">
+      <md-content class="ff-table">
+        <div class="ff-table-h" layout="row">
+          <div flex="20">Login</div>
+          <div flex="60">Email address</div>
+          <div flex="20">Actions</div>
+        </div>
+        <md-divider></md-divider>
+        <md-list>
+          <md-list-item
+            ng-repeat="u in account.active | filter:account.searchText">
+            <div flex="20">{{u.name}}</div>
+            <div flex="60">{{u.email}}</div>
+            <div flex="20">Disable</div>
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </md-tab>
+
+    <md-tab label="INACTIVE">
+      <md-content class="ff-table">
+        <div class="ff-table-h" layout="row">
+          <div flex="20">Login</div>
+          <div flex="60">Email address</div>
+          <div flex="20">Actions</div>
+        </div>
+        <md-divider></md-divider>
+        <md-list>
+          <md-list-item
+            ng-repeat="u in account.inactive | filter:account.searchText">
+            <div flex="20">{{u.name}}</div>
+            <div flex="60">{{u.email}}</div>
+            <div flex="20">Disable</div>
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </md-tab>
+
+    <!-- // TO BE REMOVED -->
+    <!-- <md-tab label="INACTIVE">
+      <md-content>
+        <md-subheader
+          md-whiteframe="1"
+          class="ff-tablesubheader">
+          <div class="ff-text">Login</div>
+          <div class="ff-text">Email address</div>
+          <div class="ff-minitext">Actions</div>
+        </md-subheader>
+        <md-content class="ff-tablelist">
+          <div
+            class="ff-tablerow"
+            ng-repeat="u in account.inactive | filter:account.searchText">
+            <div class="ff-text">{{u.name}}</div>
+            <div class="ff-text">{{u.email}}</div>
+            <div class="ff-minitext">Disable</div>
+          </div>
+        </md-content>
+      </md-content>
+    </md-tab> -->
+  </md-tabs>
+</md-card>
+
+<md-card md-whiteframe class="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2>NOTIFICATION SETTINGS</h2>
+    </div>
+  </md-toolbar>
+  <md-content class="md-padding" layout="row" flex>
+    <div flex="40" class="md-padding">
+      <md-input-container class="md-block">
+        <label>Notifications Frequency</label>
+        <md-select ng-model="accounts.frequency">
+          <md-option value="1">Fortnightly</md-option>
+          <md-option value="2">Daily</md-option>
+          <md-option value="3">Monthly</md-option>
+          <md-option value="4">Never</md-option>
+          <md-option value="5">Weekly</md-option>
+        </md-select>
+      </md-input-container>
+      <p>
+        Reminder emails will only be sent if there are any new sign ups, updates
+        or unread emails.
+      </p>
+    </div>
+    <div flex="20" class="md-padding">
+      <p>
+        <div><b>Last email date</b></div>
+        <div>18/05/2016</div>
+      </p>
+      <p >
+        <div><b>Next email date</b></div>
+        <div>01/06/2016</div>
+      </p>
+    </div>
+  </md-content>
+</md-card>

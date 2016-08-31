@@ -1,0 +1,156 @@
+<div flex layout="row">
+  <div flex="1">
+    <md-card md-whiteframe class="ff-card ff-d-search">
+      <md-toolbar class="md-card-image">
+        <div class="md-toolbar-tools">
+          <h2>Search alumni</h2>
+        </div>
+      </md-toolbar>
+      <md-content class="md-padding ff-style-m-t-15 ff-style-m-l-15 ff-style-m-r-15">
+        <md-autocomplete
+          md-item-text="item.name"
+          placeholder="Search name or email"
+          md-items="item in dashboard.alumni"
+          md-selected-item="dashboard.selectedAlumnus"
+          md-menu-class="autocomplete-custom-template">
+          <md-item-template>
+            <img src="{{item.Image}}">
+            {{item.Name}} {{item.Last_name__c}} - {{item.Email__c}}
+          </md-item-template>
+        </md-autocomplete>
+        <md-button class="ff-style-m-t-15">SEARCH</md-button>
+      </md-content>
+    </md-card>
+
+    <md-card md-whiteframe class="ff-card ff-d-registered">
+      <md-toolbar class="md-card-image">
+        <div class="md-toolbar-tools">
+          <h2>Registered alumni</h2>
+        </div>
+      </md-toolbar>
+      <md-content>
+        <div layout="column" class="ff-circlewrap">
+          <a ui-sref="portal.search.index" class="ff-circle ff-style-m-c">
+            <div class="ff-circlenumber">{{dashboard.registrationsTotal}}</div>
+            <div class="ff-circleinnerlabel">Total<br>registrations</div>
+          </a>
+        </div>
+        <div>
+          <div layout="row" flex class="ff-circlewrap ff-style-m-b-15">
+            <div flex="1" layout="row" layout-align="end">
+              <a ui-sref="portal.search.index" class="ff-circle ff-smallcircle ff-this-week">
+                <div class="ff-circlenumber">
+                  {{dashboard.registrationsWeek}}
+                </div>
+              </a>
+              <div class="ff-circleoutterlabel ff-this-week">This<br>week</div>
+            </div>
+            <div flex="1" layout="row" layout-align="start">
+              <a ui-sref="portal.search.index" class="ff-circle ff-smallcircle ff-this-month">
+                <div class="ff-circlenumber">
+                  {{dashboard.registrationsMonth}}
+                </div>
+              </a>
+              <div class="ff-circleoutterlabel">This<br>month</div>
+            </div>
+          </div>
+        </div>
+      </md-content>
+    </md-card>
+  </div>
+
+  <div flex="1">
+    <md-card md-whiteframe class="ff-card ff-d-activity">
+      <md-toolbar class="md-card-image">
+        <div class="md-toolbar-tools">
+          <h3>Alumni activities</h3>
+        </div>
+      </md-toolbar>
+      <md-content class="md-padding">
+        <div flex layout="row">
+          <h3 flex>Upcoming activity</h3>
+          <h3>26/11/2016</h3>
+        </div>
+        <div flex layout="column">
+          <h2>Lorem ipsum</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum
+            adipisci quos itaque expedita quo dolorum accusantium est ipsa
+            necessitatibus alias deserunt consequuntur aperiam, minus, obcaecati
+            reiciendis optio fugit quisquam nulla.
+          </p>
+        </div>
+      </md-content>
+      <md-divider></md-divider>
+      <md-content class="md-padding">
+        <h3>Add new activity</h3>
+        <md-input-container class="md-block" flex>
+          <label>Activity type</label>
+          <md-select ng-model="dashboard.activityType">
+            <md-option
+              ng-repeat="item in dashboard.activityTypes"
+              value="{{item._id}}">
+              {{item.name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-button class="ff-style-m-t-15">Add activity</md-button>
+      </md-content>
+    </md-card>
+
+    <md-card md-whiteframe class="ff-card ff-d-mailbox">
+      <md-toolbar class="md-card-image">
+        <div class="md-toolbar-tools">
+          <h2>Mailbox</h2>
+        </div>
+      </md-toolbar>
+      <md-content class="md-padding ff-style-t-c">
+        <div flex layout="row">
+          <span flex="10"></span>
+          <div flex="40">
+            Inbox<br>
+            <!-- need to add an ng-class here (pink if there is new msgs) -->
+            <b>{{dashboard.newMessages}} new</b><br>
+            <md-button md-whiteframe class="md-fab" aria-label="Inbox">
+              <i class="material-icons">mail_outline</i>
+            </md-button>
+          </div>
+
+          <div flex="40">
+            Compose<br>
+            mail<br>
+            <md-button md-whiteframe class="md-fab" aria-label="Inbox">
+              <i class="material-icons">mode_edit</i>
+            </md-button>
+          </div>
+          <span flex="10"></span>
+        </div>
+      </md-content>
+    </md-card>
+  </div>
+</div>
+
+<div flex layout="row">
+  <div flex="1">
+    <md-card md-whiteframe class="ff-card">
+      <md-toolbar class="md-card-image">
+        <div class="md-toolbar-tools">
+          <h2>Number of sign ups</h2>
+        </div>
+      </md-toolbar>
+      <md-content class="md-padding">
+
+
+        <canvas
+          id="line"
+          chart-legend="true"
+          class="chart chart-line"
+          chart-data="dashboard.getChartData('year').datasets"
+          chart-labels="dashboard.getChartData('year').labels">
+        </canvas>
+
+
+      </md-content>
+    </md-card>
+  </div>
+</div>

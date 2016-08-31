@@ -1,0 +1,107 @@
+<h1 class="ff-reg-main-h">Education</h1>
+
+<h3 ng-if="!registerSteps4.eduHistory.length">No education history</h3>
+
+<h3 ng-if="registerSteps4.eduHistory.length">Education history</h3>
+
+<div ng-repeat="edu in registerSteps4.eduHistory | orderBy:'-from'">
+  <div flex layout="row">
+    <div flex="85">
+      <div ng-if="edu.aLevelSubjects">
+        <b>{{edu.aLevelSubjects.join(', ')}}</b>
+      </div>
+
+      <div ng-if="edu.asLevelSubjects">
+        <b>{{edu.asLevelSubjects.join(', ')}}</b>
+      </div>
+
+      <div ng-if="edu.ibLevelSubjects">
+        <b>{{edu.ibLevelSubjects.join(', ')}}</b>
+      </div>
+
+      <div ng-if="edu.sixthLevelSubjects">
+        <b>{{edu.sixthLevelSubjects.join(', ')}}</b>
+      </div>
+
+      <div ng-if="edu.postgraduateSubject">
+        <b>{{edu.postgraduateSubject}}</b>
+      </div>
+
+      <div ng-if="edu.undergraduateSubject">
+        <b>{{edu.undergraduateSubject}}</b>
+      </div>
+
+      <div ng-if="edu.description">
+        <b>{{edu.description}}</b>
+      </div>
+
+      <div ng-if="edu.trainingDescription">
+        <b>{{edu.trainingDescription}}</b>
+      </div>
+
+      <div ng-if="edu.postgraduateMoreInfo">
+        <b>{{edu.postgraduateMoreInfo}}</b>
+      </div>
+
+      <div ng-if="edu.undergraduateMoreInfo">
+        <b>{{edu.undergraduateMoreInfo}}</b>
+      </div>
+
+      <div ng-if="edu.postgraduateLevel">
+        {{edu.postgraduateLevel}}
+      </div>
+
+      <div>{{edu.education}}</div>
+
+      <div>{{registerSteps4.datesToS(edu)}}</div>
+
+      <div ng-if="edu.apprenticeshipRole">
+        {{edu.apprenticeshipRole}}
+      </div>
+
+      <div ng-if="edu.apprenticeshipLevel">
+        {{edu.apprenticeshipLevel}}
+      </div>
+
+      <div ng-if="edu.apprenticeshipSector">
+        {{edu.apprenticeshipSector}}
+      </div>
+
+      <div ng-if="edu.apprenticeshipEmployer">
+        {{edu.apprenticeshipEmployer}}
+      </div>
+
+      <div ng-if="edu.post16Institution">
+        {{edu.post16Institution}}
+      </div>
+
+      <div ng-if="edu.postgraduateInstitution">
+        {{edu.postgraduateInstitution}}
+      </div>
+
+      <div ng-if="edu.undergraduateInstitution">
+        {{edu.undergraduateInstitution}}
+      </div>
+    </div>
+    <div flex="15">
+      <md-button
+        class="md-icon-button"
+        ng-click="registerSteps4.openModal(edu, 'edit')">
+        <i class="material-icons">edit</i>
+      </md-button>
+      <md-button
+        class="md-icon-button"
+        ng-click="registerSteps4.remove(edu.$$hashKey)">
+        <i class="material-icons">delete</i>
+      </md-button>
+    </div>
+  </div>
+  <md-divider></md-divider>
+</div>
+
+<md-button
+  class="md-icon-button"
+  aria-label="Add education history"
+  ng-click="registerSteps4.openModal()">
+  <i class="material-icons">add_box</i>
+</md-button>

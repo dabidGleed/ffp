@@ -1,0 +1,222 @@
+<md-card md-whiteframe class="ff-card" id="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2>Online sign-up form links</h2>
+    </div>
+  </md-toolbar>
+  <md-content class="md-padding">
+    <div class="md-padding">
+      <b>Current students:</b>
+      <a href="http://networksbeta.futurefirst.org.uk/student/test">
+        http://networksbeta.futurefirst.org.uk/student/test
+      </a>
+    </div>
+    <div class="md-padding">
+      <b>Former students:</b>
+      <a href="http://networksbeta.futurefirst.org.uk/former-student/test">
+        http://networksbeta.futurefirst.org.uk/former-student/test
+      </a>
+    </div>
+  </md-content>
+</md-card>
+
+<md-card md-whiteframe class="ff-card" id="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2>Customise online sign-up form</h2>
+    </div>
+  </md-toolbar>
+  <md-content class="md-padding">
+    <div>
+      <md-input-container class="md-block md-padding">
+        <label>Select image</label>
+        <md-select ng-model="size">
+          <md-option value="1">Image 1</md-option>
+          <md-option value="2">Image 2</md-option>
+          <md-option value="3">Image 3</md-option>
+          <md-option value="4">Image 4</md-option>
+          <md-option value="5">Image 5</md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div>
+      <md-input-container class="md-block md-padding">
+        <label>Select colour</label>
+        <md-select ng-model="size">
+          <md-option value="1">Colour 1</md-option>
+          <md-option value="2">Colour 2</md-option>
+          <md-option value="3">Colour 3</md-option>
+          <md-option value="4">Colour 4</md-option>
+          <md-option value="5">Colour 5</md-option>
+        </md-select>
+      </md-input-container>
+    </div>
+    <div>
+      <md-input-container class="md-block ff-style-m-l-15 ff-style-m-r-15">
+        <label>Text</label>
+        <input>
+      </md-input-container>
+    </div>
+    <div>
+      <md-input-container class="md-block ff-style-m-l-15 ff-style-m-r-15">
+        <label>Welcome email</label>
+        <textarea ng-model="thing" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+      </md-input-container>
+      <p class="md-padding">
+        This text is emailed to students after they sign-up to your network
+        through the online sign-up forms. To use our default text instead just
+        leave this blank.<br><br>'{contact.first_name}' will be replaced by the
+        alumnus' first name.
+      </p>
+    </div>
+    <div class="ff-style-m-l-15 ff-style-m-r-15">
+      <md-button>Save</md-button>
+    </div>
+  </md-content>
+</md-card>
+
+<md-card md-whiteframe class="ff-card ff-custom-q" id="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2 flex>Custom questions</h2>
+      <md-button
+        class="md-icon-button"
+        aria-label="Filters"
+        ng-click="customise.openQuestion()">
+        <i class="material-icons">add</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content>
+  <!-- // TO BE REMOVED -->
+    <!-- <div layout="row" flex>
+      <div flex="50">
+        <md-input-container class="md-block md-padding">
+          <label>Question</label>
+          <input>
+        </md-input-container>
+      </div>
+      <div flex="50">
+        <md-input-container class="md-block md-padding">
+          <label>Question type</label>
+          <md-select ng-model="size">
+            <md-option value="1">Text</md-option>
+            <md-option value="2">Select</md-option>
+            <md-option value="3">Multi-Select</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+    </div>
+    <div>
+      <md-button>Add new question</md-button>
+    </div>
+     -->
+    <md-content class="ff-table">
+      <div class="ff-table-h" layout="row">
+        <div flex="60">Question</div>
+        <div flex="15">Type</div>
+        <div flex="15" class="ff-style-p-l-25">Order</div>
+        <div flex="10" class="ff-style-p-l-15">Actions</div>
+      </div>
+      <md-divider></md-divider>
+      <md-list >
+        <md-list-item
+          ng-repeat="q in customise.customQuestions"
+          layout="row" layout-wrap>
+          <div flex="60" class="ff-table-custom-q" layout-wrap>{{q.question}}</div>
+          <div flex="15">{{q.type}}</div>
+          <div flex="10" layout="row">
+            <div flex>
+              <md-button
+                ng-if="!$first"
+                class="md-icon-button"
+                aria-label="Move up">
+                <i class="material-icons">keyboard_arrow_up</i>
+              </md-button>
+            </div>
+            <div flex="50">
+              <md-button
+                ng-if="!$last"
+                class="md-icon-button"
+                aria-label="Move down">
+                <i class="material-icons">keyboard_arrow_down</i>
+              </md-button>
+            </div>
+          </div>
+
+          <div flex="15" class="ff-style-p-l-10" layout="row" layout-align="end">
+            <span></span>
+            <div flex="33">
+              <md-button
+                class="md-icon-button"
+                aria-label="Edit"
+                ng-click="customise.openQuestion()">
+                <i class="material-icons">mode_edit</i>
+              </md-button>
+            </div>
+            <div flex="33">
+              <md-button
+                class="md-icon-button"
+                aria-label="Delete">
+                <i class="material-icons">delete</i>
+              </md-button>
+            </div>
+          </div>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-content>
+
+    <!-- <div class="ff-custom-q-table">
+      <div layout="row" class="ff-custom-q-h">
+        <div flex="60"><b>Question</b></div>
+        <div flex="20"><b>Type</b></div>
+        <div flex="10" class="ff-style-p-l-8 ff-style-m-r-20"><b>Order</b></div>
+        <div flex="10"><b>Actions</b></div>
+      </div>
+      <md-divider></md-divider>
+      <ul class="md-padding">
+        <li ng-repeat="q in customise.customQuestions" layout="row">
+          <div flex="60">{{q.question}}</div>
+          <div flex="20" class="">{{q.type}}</div>
+          <div flex="10" layout="row" class="ff-style-m-r-20">
+            <div flex>
+              <md-button
+                ng-if="!$first"
+                class="md-icon-button"
+                aria-label="Move up">
+                <i class="material-icons">keyboard_arrow_up</i>
+              </md-button>
+            </div>
+
+            <div flex="50" layout-align="start end">
+              <md-button
+                ng-if="!$last"
+                class="md-icon-button"
+                aria-label="Move down">
+                <i class="material-icons">keyboard_arrow_down</i>
+              </md-button>
+            </div>
+          </div>
+
+          <div flex="10" layout="row">
+            <div flex="50">
+              <md-button
+                class="md-icon-button"
+                aria-label="Edit">
+                <i class="material-icons">mode_edit</i>
+              </md-button>
+            </div>
+            <div flex="50" class="ff-style-m-r-15">
+              <md-button
+                class="md-icon-button"
+                aria-label="Delete">
+                <i class="material-icons">delete</i>
+              </md-button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div> -->
+  </md-content>
+</md-card>

@@ -1,0 +1,33 @@
+$blue_50:  #E2E5EB;
+$blue_100: #BAC0CE;
+$blue_200: #919BB1; // Light primary colour
+$blue_300: #647190;
+$blue_400: #435379; // Mid primary colour
+$blue_500: #233662; // Dark primary colour
+$blue_600: #1F3159;
+$blue_700: #1C2B4F;
+$blue_800: #182645;
+$blue_900: #121C33;
+
+$pink_100: #FF80AB;
+$pink_200: #FF4081; // Main accent
+$pink_300: #EA5286; // Pink hover
+$pink_400: #F50057;
+$pink_500: #E21E64; // Popup btns hover
+$pink_700: #C51162;
+
+$white:    #FFFFFF; // White text/icons
+$grey_100: #F0F2F3; // Onboarding footer
+$grey_200: #E4E4E4; // Divider
+$grey_300: #B6B6B6; // Hint/disabled
+$grey_400: #727272; // Secondary text
+$black:    #212121; // Primary text
+
+$red: #D50000; // Warn 500
+
+body {
+  color: $black;
+}
+
+@import "../imports/ui/components/futureFirst/_futureFirst.scss";
+

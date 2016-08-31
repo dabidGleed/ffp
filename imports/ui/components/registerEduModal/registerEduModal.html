@@ -1,0 +1,316 @@
+<md-dialog aria-label="Education">
+  <md-dialog-content>
+    <form name="educationForm">
+      <md-autocomplete
+        flex
+        required
+        md-item-text="i"
+        md-floating-label="Education*"
+        md-search-text="registerEduModal.searchEducation"
+        md-selected-item="registerEduModal.education.education"
+        md-items="i in registerEduModal.q(registerEduModal.searchEducation, 'educationLookup')">
+        <md-item-template>
+          <span md-highlight-text="registerEduModal.searchEducation">
+            {{i}}
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+
+      <md-input-container
+        class="md-block"
+        ng-if="registerEduModal.showDescription()">
+        <label>Description*</label>
+        <input ng-model="registerEduModal.education.description" required>
+      </md-input-container>
+
+      <md-input-container
+        class="md-block"
+        ng-if="registerEduModal.showTraining()">
+        <label>Training description*</label>
+        <input
+          required
+          ng-model="registerEduModal.education.trainingDescription">
+      </md-input-container>
+
+      <md-chips
+        md-autocomplete-snap
+        md-require-match="true"
+        ng-if="registerEduModal.showAlevel()"
+        ng-model="registerEduModal.education.aLevelSubjects">
+        <md-autocomplete
+          md-item-text="i"
+          placeholder="Subject(s)* [A-L]"
+          md-search-text="registerEduModal.searchAlevel"
+          md-selected-item="registerEduModal.selectedAlevel"
+          md-items="i in registerEduModal.q(registerEduModal.searchAlevel, 'aLevelLookup')">
+          <span md-highlight-text="registerEduModal.searchAlevel">{{i}}</span>
+        </md-autocomplete>
+        <md-chip-template>{{$chip}}</md-chip-template>
+      </md-chips>
+
+      <md-chips
+        md-autocomplete-snap
+        md-require-match="true"
+        ng-if="registerEduModal.showASlevel()"
+        ng-model="registerEduModal.education.asLevelSubjects">
+        <md-autocomplete
+          md-item-text="i"
+          placeholder="Subject(s)* [AS-L]"
+          md-search-text="registerEduModal.searchASlevel"
+          md-selected-item="registerEduModal.selectedASlevel"
+          md-items="i in registerEduModal.q(registerEduModal.searchASlevel, 'asLevelLookup')">
+          <span md-highlight-text="registerEduModal.searchASlevel">{{i}}</span>
+        </md-autocomplete>
+        <md-chip-template>{{$chip}}</md-chip-template>
+      </md-chips>
+
+      <md-chips
+        md-autocomplete-snap
+        md-require-match="true"
+        ng-if="registerEduModal.showIB()"
+        ng-model="registerEduModal.education.ibLevelSubjects">
+        <md-autocomplete
+          md-item-text="i"
+          placeholder="Subject(s)* [IB]"
+          md-search-text="registerEduModal.searchIBLevel"
+          md-selected-item="registerEduModal.selectedIBlevel"
+          md-items="i in registerEduModal.q(registerEduModal.searchIBLevel, 'ibLevelLookup')">
+          <span md-highlight-text="registerEduModal.searchIBLevel">{{i}}</span>
+        </md-autocomplete>
+        <md-chip-template>{{$chip}}</md-chip-template>
+      </md-chips>
+
+      <md-chips
+        md-autocomplete-snap
+        md-require-match="true"
+        ng-if="registerEduModal.showSixthForm()"
+        ng-model="registerEduModal.education.sixthLevelSubjects">
+        <md-autocomplete
+          md-item-text="i"
+          placeholder="Subject(s)* [16]"
+          md-search-text="registerEduModal.search16level"
+          md-selected-item="registerEduModal.selected16level"
+          md-items="i in registerEduModal.q(registerEduModal.search16level, 'post16Lookup')">
+          <span md-highlight-text="registerEduModal.search16level">{{i}}</span>
+        </md-autocomplete>
+        <md-chip-template>{{$chip}}</md-chip-template>
+      </md-chips>
+
+      <md-autocomplete
+        flex
+        required
+        md-item-text="i"
+        md-floating-label="Undergraduate subject*"
+        ng-if="registerEduModal.showUndergraduate()"
+        md-search-text="registerEduModal.searchUndergraduate"
+        md-selected-item="registerEduModal.education.undergraduateSubject"
+        md-items="i in registerEduModal.q(registerEduModal.searchUndergraduate, 'undergraduateLookup')">
+        <md-item-template>
+          <span md-highlight-text="registerEduModal.searchUndergraduate">
+            {{i}}
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+
+      <md-autocomplete
+        flex
+        required
+        md-item-text="i"
+        md-floating-label="Postgraduate subject*"
+        ng-if="registerEduModal.showPostgraduate()"
+        md-search-text="registerEduModal.searchPostgraduate"
+        md-selected-item="registerEduModal.education.postgraduateSubject"
+        md-items="i in registerEduModal.q(registerEduModal.searchPostgraduate, 'postgraduateLookup')">
+        <md-item-template>
+          <span md-highlight-text="registerEduModal.searchPostgraduate">
+            {{i}}
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+
+      <md-input-container
+        class="md-block"
+        ng-if="registerEduModal.showUndergraduate()">
+        <label>Undergraduate more info*</label>
+        <input
+          required
+          ng-model="registerEduModal.education.undergraduateMoreInfo">
+      </md-input-container>
+
+      <md-input-container
+        class="md-block"
+        ng-if="registerEduModal.showPostgraduate()">
+        <label>Postgraduate more info*</label>
+        <input
+          required
+          ng-model="registerEduModal.education.postgraduateMoreInfo">
+      </md-input-container>
+
+      <md-autocomplete
+        flex
+        required
+        md-item-text="i"
+        md-floating-label="Postgraduate level*"
+        ng-if="registerEduModal.showPostgraduate()"
+        md-search-text="registerEduModal.searchPostgraduateLevel"
+        md-selected-item="registerEduModal.education.postgraduateLevel"
+        md-items="i in registerEduModal.q(registerEduModal.searchPostgraduateLevel, 'postgraduateLevelLookup')">
+        <md-item-template>
+          <span md-highlight-text="registerEduModal.searchPostgraduateLevel">
+            {{i}}
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+
+      <md-autocomplete
+        flex
+        required
+        md-item-text="i"
+        ng-if="registerEduModal.show16()"
+        md-floating-label="Post16 institution*"
+        md-search-text="registerEduModal.searchPost16Institution"
+        md-selected-item="registerEduModal.education.organisation"
+        md-items="i in registerEduModal.q(registerEduModal.searchPost16Institution, 'post16InstitutionLookup')">
+        <md-item-template>
+          <span md-highlight-text="registerEduModal.searchPost16Institution">
+            {{i}}
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+
+      <md-autocomplete
+        flex
+        required
+        md-item-text="i"
+        ng-if="registerEduModal.showUndergraduate()"
+        md-floating-label="Undergraduate institution*"
+        md-selected-item="registerEduModal.education.organisation"
+        md-search-text="registerEduModal.searchUndergraduateInstitution"
+        md-items="i in registerEduModal.q(registerEduModal.searchUndergraduateInstitution, 'undergraduateInstitutionLookup')">
+        <md-item-template>
+          <span
+            md-highlight-text="registerEduModal.searchUndergraduateInstitution">
+            {{i}}
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+
+      <md-autocomplete
+        flex
+        required
+        md-item-text="i"
+        ng-if="registerEduModal.showPostgraduate()"
+        md-floating-label="Postgraduate institution*"
+        md-selected-item="registerEduModal.education.organisation"
+        md-search-text="registerEduModal.searchPostgraduateInstitution"
+        md-items="i in registerEduModal.q(registerEduModal.searchPostgraduateInstitution, 'postgraduateInstitutionLookup')">
+        <md-item-template>
+          <span
+            md-highlight-text="registerEduModal.searchPostgraduateInstitution">
+            {{i}}
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+
+      <md-autocomplete
+        flex
+        required
+        md-item-text="i"
+        md-floating-label="Apprenticeship Employer*"
+        ng-if="registerEduModal.showApprenticeship()"
+        md-selected-item="registerEduModal.education.organisation"
+        md-search-text="registerEduModal.searchApprenticeshipEmployer"
+        md-items="i in registerEduModal.q(registerEduModal.searchApprenticeshipEmployer, 'apprenticeshipEmployerLookup')">
+        <md-item-template>
+          <span
+            md-highlight-text="registerEduModal.searchApprenticeshipEmployer">
+            {{i}}
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+
+      <md-input-container
+        class="md-block"
+        ng-if="registerEduModal.showApprenticeship()">
+        <label>Role*</label>
+        <input
+          required
+          ng-model="registerEduModal.education.apprenticeshipRole">
+      </md-input-container>
+
+      <md-autocomplete
+        flex
+        required
+        md-item-text="i"
+        md-floating-label="Apprenticeship Level*"
+        ng-if="registerEduModal.showApprenticeship()"
+        md-selected-item="registerEduModal.education.organisation"
+        md-search-text="registerEduModal.searchApprenticeshipLevel"
+        md-items="i in registerEduModal.q(registerEduModal.searchApprenticeshipLevel, 'apprenticeshipLookup')">
+        <md-item-template>
+          <span md-highlight-text="registerEduModal.searchApprenticeshipLevel">
+            {{i}}
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+
+      <md-autocomplete
+        flex
+        required
+        md-item-text="i"
+        md-floating-label="Apprenticeship Sector*"
+        ng-if="registerEduModal.showApprenticeship()"
+        md-selected-item="registerEduModal.education.organisation"
+        md-search-text="registerEduModal.searchApprenticeshipSector"
+        md-items="i in registerEduModal.q(registerEduModal.searchApprenticeshipSector, 'apprenticeshipSectorLookup')">
+        <md-item-template>
+          <span
+            md-highlight-text="registerEduModal.searchApprenticeshipSector">
+            {{i}}
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+
+      <div
+        flex
+        layout="row"
+        ng-if="registerEduModal.education.education.length">
+        <div flex="1">
+          <label class="md-caption">From*</label>
+          <md-datepicker
+            required
+            ng-model="registerEduModal.education.from">
+          </md-datepicker>
+        </div>
+
+        <div flex="1">
+          <label class="md-caption">To*</label>
+          <md-datepicker
+            ng-model="registerEduModal.education.to"
+            ng-disabled="registerEduModal.education.ongoing"
+            ng-required="!registerEduModal.education.ongoing">
+          </md-datepicker>
+        </div>
+
+        <div flex="1">
+          <md-checkbox
+            ng-change="registerEduModal.clearTo()"
+            ng-model="registerEduModal.education.ongoing">
+            Ongoing
+          </md-checkbox>
+        </div>
+      </div>
+
+      <md-button
+        aria-label="Save"
+        ng-click="registerEduModal.save()"
+        ng-disabled="educationForm.$invalid">
+        <span ng-if="registerEduModal.isNew()">Add</span>
+        <span ng-if="!registerEduModal.isNew()">Save</span>
+      </md-button>
+      <md-button ng-click="registerEduModal.cancel()">
+        Cancel
+      </md-button>
+    </form>
+  </md-dialog-content>
+</md-dialog>

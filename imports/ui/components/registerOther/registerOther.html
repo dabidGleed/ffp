@@ -1,0 +1,56 @@
+<section layout="row" flex>
+  <div flex="33" class="ff-reg-img">
+    <img
+      alt="Rocket"
+      class="ff-rocket"
+      src="/images/rocket.png"
+      ng-if="!registerOther.showSchoolLogo()">
+
+    <img
+      alt="School Logo"
+      ng-if="registerOther.showSchoolLogo()"
+      ng-src="{{registerOther.school.School_logo__c}}">
+  </div>
+  <div layout="column" flex="66">
+    <h1 class="ff-reg-1" ng-style="registerOther.getSchoolTextColour()">
+      {{registerOther.school.School_name__c}}
+    </h1>
+
+    <h1 class="ff-reg-main-h">
+      Want to give back to your school or college? Let’s keep in touch.
+    </h1>
+
+    <div flex="1">
+      <md-button
+        md-whiteframe
+        class="md-padding ff-reg-other"
+        ng-click="registerOther.registerGoogle()">
+        <img
+          class="ff-social-logo"
+          alt="Future First Logo"
+          src="/images/google_logo.png">
+        Accept and join with Google
+      </md-button>
+      <md-button
+        md-whiteframe
+        class="md-padding ff-reg-other"
+        ng-click="registerOther.registerFacebook()">
+        <img
+          class="ff-social-logo"
+          alt="Future First Logo"
+          src="/images/fb_logo.png">
+        Accept and join with Facebook
+      </md-button>
+      <md-button
+        md-whiteframe
+        class="md-padding ff-reg-other"
+        ng-click="registerOther.registerEmail()">
+        <img
+          class="ff-social-logo"
+          alt="Future First Logo"
+          src="/images/email_logo.png">
+        Accept and join with email
+      </md-button>
+    </div>
+  </div>
+</section>

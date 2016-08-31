@@ -1,0 +1,163 @@
+.ff-popup {
+  height: auto;
+  width: 450px;
+  // padding: 30px 30px 20px 30px;
+  md-dialog-content {
+    padding-bottom: 0;
+    padding: 20px 30px 14px 30px;
+  }
+
+  &.ff-regdialog {
+    width: 600px;
+
+    md-autocomplete[md-floating-label] md-input-container {
+      padding-bottom: 0 !important;
+    }
+
+    md-input-container {
+      width: 100%;
+    }
+  }
+
+   &.ff-maildialog {
+    width: 825px;
+
+    // TO BE REMOVED
+    height: 544px;
+
+    md-dialog-content {
+      padding: 0;
+    }
+
+    .md-primary.md-raised.ff-popup-btn {
+      margin-bottom: 30px;
+
+    }
+  }
+// TO BE REMOVED
+// md-autocomplete-wrap {
+ //   // box-shadow: none;
+ //    padding-left: 15px;
+ //  }
+
+  .md-chips .md-chip-input-container input{
+    width: 670px;
+    border-right: solid 1px $grey_200;
+    padding-right: 15px;
+  }
+
+  .md-toolbar-tools {
+    background-color: $pink_400;
+  }
+
+  .ff-mail-subject {
+    width: 795px;
+  }
+
+  text-angular {
+  	p {
+  		margin: 0;
+      padding-left: 15px;
+      padding-top: 15px;
+  	}
+  }
+
+  .ff-mail-controls {
+  	margin-left: 20px;
+
+  	.btn-group {
+    height: 35px;
+    display: inline-block;
+    margin-top: 8px;
+    padding-right: 4px;
+    margin-right: 7px;
+    border-right: $grey_200 solid 1px;
+		}
+
+		.btn-group:last-child {
+			border: none;
+		}
+
+  	button {
+  		float: left;
+  		border: none;
+  		background: none;
+
+  	}
+
+    // Icpms for controls
+    .material-icons {
+      padding-top: 3px;
+      color: $grey_300;
+
+      &:hover {
+         color: $grey_400;
+      }
+
+      &.format-bold::before {
+        content: "format_bold";
+      }
+
+      &.attach-file::before {
+        content: "attach_file";
+      }
+
+      &.format-italic::before {
+        content: "format_italic";
+      }
+
+      &.format-list-bulleted::before {
+        content: "format_list_bulleted";
+      }
+
+      &.format-list-numbered::before {
+        content: "format_list_numbered";
+      }
+
+      &.redo::before {
+        content: "redo";
+      }
+
+      &.undo::before {
+        content: "undo";
+      }
+
+      &.format-quote::before {
+        content: "format_quote";
+      }
+
+      &.format-indent-increase::before {
+        content: "format_indent_increase";
+      }
+
+      &.format-indent-decrease::before {
+        content: "format_indent_decrease";
+      }
+
+      &.format-underlined::before {
+        content: "format_underlined";
+      }
+
+      &.insert-link::before {
+        content: "insert_link";
+      }
+
+      &.image::before {
+        content: "image";
+      }
+
+      &.format-align-left::before {
+        content: "format_align_left";
+      }
+
+      &.format-align-right::before {
+        content: "format_align_right";
+      }
+
+      &.format-align-center::before {
+        content: "format_align_center";
+      }
+    }
+  }
+
+}

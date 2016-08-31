@@ -1,0 +1,34 @@
+<h1 class="ff-reg-main-h">Questions from the school or college</h1>
+
+<md-input-container class="md-block">
+  <label>Question 1</label>
+  <textarea
+    ng-model="registerSteps5.question1"
+    ng-change="registerSteps5.update('question1')"></textarea>
+</md-input-container>
+
+<md-chips
+  md-autocomplete-snap
+  md-require-match="true"
+  ng-model="registerSteps5.question2">
+  <md-autocomplete
+    md-item-text="i"
+    placeholder="Question 2"
+    md-search-text="registerSteps5.searchQuestion2"
+    md-selected-item="registerSteps5.selectedQuestion2"
+    md-items="i in registerSteps5.querySearch(registerSteps5.searchQuestion2)">
+    <span md-highlight-text="registerSteps5.searchQuestion2">{{i}}</span>
+  </md-autocomplete>
+  <md-chip-template>{{$chip}}</md-chip-template>
+</md-chips>
+
+<md-input-container class="md-block" flex>
+  <label>Question 3</label>
+  <md-select
+    ng-model="registerSteps5.question3"
+    ng-change="registerSteps5.update('question3')">
+    <md-option value="1">Option 1</md-option>
+    <md-option value="2">Option 2</md-option>
+    <md-option value="3">Option 3</md-option>
+  </md-select>
+</md-input-container>

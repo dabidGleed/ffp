@@ -1,0 +1,189 @@
+  <section layout="row" flex>
+  <div flex="33">
+    <img alt="Rocket" class="ff-rocket" src="/images/rocket.png">
+  </div>
+  <div flex="66">
+    <h1 class="ff-reg-main-h">Want to give back to your school or college? Let's keep in touch.</h1>
+
+    <form name="nonmemberform">
+      <div layout="row" flex>
+        <div flex="51" layout="column">
+          <md-input-container class="md-block">
+            <label>First name</label>
+            <input
+              required=""
+              type="text"
+              name="first"
+              ng-model="registerNonmember.formData.firstName">
+            <div ng-messages="nonmemberform.first.$error">
+              <div ng-message-exp="['required']">
+                You must enter your first name
+              </div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Last name</label>
+            <input
+              required=""
+              type="text"
+              name="last"
+              ng-model="registerNonmember.formData.lastName">
+            <div ng-messages="nonmemberform.first.$error">
+              <div ng-message-exp="['required']">
+                You must enter your last name
+              </div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Email</label>
+            <input
+              type="email"
+              name="email"
+              required=""
+              minlength="10"
+              maxlength="100"
+              ng-pattern="/^.+@.+\..+$/"
+              ng-model="registerNonmember.formData.email">
+            <div class="ff-hint">
+              We'll send you an email to verify this address
+            </div>
+            <div ng-messages="nonmemberform.email.$error">
+              <div
+                ng-message-exp="['required','minlength','maxlength','pattern']">
+                You must enter a valid email address
+              </div>
+            </div>
+          </md-input-container>
+
+          <div layout="column" class="ff-reg-datepicker">
+            <label class="md-caption">Date of birth</label>
+            <md-datepicker
+              ng-model="registerNonmember.formData.dob">
+            </md-datepicker>
+          </div>
+
+          <md-input-container class="md-block">
+            <label>Gender</label>
+            <md-select
+              aria-label="Gender"
+              ng-model="registerNonmember.formData.gender">
+              <md-option
+                ng-repeat="gender in registerNonmember.gendersLookup"
+                value="{{gender.value}}">
+                {{gender.label}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Mobile</label>
+            <input
+              type="text"
+              ng-model="registerNonmember.formData.mobile">
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Previous name</label>
+            <input
+              type="text"
+              ng-model="registerNonmember.formData.previousName">
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Leaving year</label>
+            <md-select
+              aria-label="Leaving year"
+              ng-model="registerNonmember.formData.leavingYear">
+              <md-option
+                ng-repeat="year in registerNonmember.leavingYearLookup"
+                value="{{year.value}}">
+                {{year.label}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Current occupation</label>
+            <md-select
+              aria-label="Current occupation"
+              ng-model="registerNonmember.formData.currentOccupation">
+              <md-option
+                ng-repeat="o in registerNonmember.currentOccupationLookup"
+                value="{{o.value}}">
+                {{o.label}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Title</label>
+            <input
+              type="text"
+              ng-model="registerNonmember.formData.title">
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Able to attend in person</label>
+            <md-select
+              aria-label="Gender"
+              ng-model="registerNonmember.formData.ableToAttendInPerson">
+              <md-option
+                value="{{able.value}}"
+                ng-repeat="able in registerNonmember.ableToAttendInPersonLookup">
+                {{able.label}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+        </div>
+        <div flex="33" class="md-block">
+          <img
+            alt="Avatar"
+            class="ff-avatar"
+            ng-if="registerNonmember.formData.image"
+            ng-src="{{registerNonmember.formData.image}}">
+
+          <div class="ff-reg-add-photo">
+            <i class="material-icons">perm_identity</i>
+          </div>
+        </div>
+      </div>
+
+      <md-chips
+        class="ff-reg-input-f md-block ff-reg-m-input"
+        md-autocomplete-snap
+        md-require-match="true"
+        ng-model="registerNonmember.formData.supportOffered"
+        flex="100">
+        <md-autocomplete
+          md-item-text="i"
+          md-floating-label="Support offered"
+          md-search-text="registerNonmember.searchSupport"
+          md-selected-item="registerNonmember.selectedSupport"
+          md-items="i in registerNonmember.querySearch(registerNonmember.searchSupport)">
+          <span md-highlight-text="registerNonmember.searchSupport">
+            {{i.label}}
+          </span>
+        </md-autocomplete>
+        <md-chip-template>{{$chip.label}}</md-chip-template>
+      </md-chips>
+
+      <md-divider class="ff-reg-divider"></md-divider>
+
+      <div layout="row" flex>
+        <md-button class="md-raised md-primary"
+          ng-disabled="nonmemberform.$invalid"
+          ng-click="registerNonmember.register()">
+          Join
+        </md-button>
+        <md-button ui-sref="register.index">Cancel</md-button>
+        <span flex="65" class="ff-reg-policy">
+          By signing up you are accepting the
+          <a href="#" target="_blank"><b>Privacy Policy</b></a>
+        </span>
+      </div>
+    </form>
+  </div>
+</section>

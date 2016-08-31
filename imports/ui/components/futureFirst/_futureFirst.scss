@@ -1,0 +1,250 @@
+// Fix for TextAngular
+.ta-hidden-input {
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  border: none;
+  top: -10000px;
+  left: -10000px;
+  overflow: hidden;
+  position: absolute;
+}
+
+// Class for input hints
+.ff-hint {
+  left: 2px;
+  bottom: 7px;
+  right: auto;
+  font-size: 12px;
+  color: $grey_300;
+  line-height: 14px;
+  position: absolute;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+
+  &.ng-hide,
+  &.ng-enter,
+  &.ng-leave.ng-leave-active {
+    opacity: 0;
+    bottom: 26px;
+  }
+
+  &.ng-leave,
+  &.ng-enter.ng-enter-active {
+    opacity: 1;
+    bottom: 7px;
+  }
+}
+
+.md-input-invalid .ff-hint {
+  display: none;
+}
+
+.md-toolbar-tools {
+    color: $white;
+    background: $blue_500;
+
+    i.material-icons {
+      color: $white;
+    }
+}
+
+md-input-container .md-input {
+  border-color: $grey_200;
+}
+
+md-input-container:not(.md-input-invalid).md-input-focused:not(.ff-searchinput) {
+  .md-input {
+    border-color: $pink_200 !important;
+  }
+
+  label:not(.md-no-float) {
+  opacity: 1;
+  color: $grey_400;
+  }
+
+  input {
+    color: $black;
+  }
+}
+
+md-select:not([disabled]):focus .md-select-value {
+  border-bottom-color: $pink_200;
+
+  .md-select-icon {
+    color: $grey_400 !important;
+  }
+}
+.md-datepicker-calendar-icon {
+  fill: $grey_300;
+}
+
+.md-datepicker-open .md-datepicker-calendar-icon {
+  fill: $grey_400;
+}
+
+// GLOBAL PRIMARY BUTTONS
+
+.md-button.md-primary.md-raised {
+  color: $white!important;
+  background-color: $pink_200 !important;
+
+  &:disabled {
+    color: $grey_300 !important;
+    background-color: $grey_200 !important;
+
+    &:hover {
+      background-color: $grey_200 !important;
+    }
+  }
+
+  &:hover {
+     background-color: $pink_300 !important;
+  }
+
+  // Compose Mail etc.
+  &.ff-popup-btn {
+    background-color: $pink_400 !important;
+
+    &:hover {
+      background-color: $pink_500 !important;
+    }
+  }
+}
+
+.hint {
+  position: absolute;
+  left: 2px;
+  right: auto;
+  bottom: 6px;
+  font-size: 13px;
+  line-height: 14px;
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+  color: grey;
+}
+
+// GLOBAL FLAT BUTTONS
+.md-button {
+  margin-left: 0 !important;
+
+  &.ff-grey {
+    color: $grey_300 !important;
+
+    &:hover {
+      color: $grey_400 !important;
+    }
+  }
+
+  &.md-icon-button {
+    margin: 0;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+
+    &.ff-i-del:hover {
+      color: $red;
+    }
+
+    &.md-36 {
+      width: 36px;
+      height: 36px;
+      padding: inherit;
+    }
+  }
+}
+
+/* styling shortcuts */
+.ff-no-m {
+  margin: 0;
+}
+
+.ff-style-t-c {
+  text-align: center;
+}
+
+.ff-style-p-t-b-8 {
+  padding: 8px 0;
+}
+
+// .ff-style-p-l-10 {
+//   margin-left: 10px;
+// }
+
+.ff-style-p-l-15 {
+  padding-left: 15px;
+}
+
+.ff-style-p-r-15 {
+  padding-right: 15px !important;
+}
+
+.ff-style-p-l-25 {
+  padding-left: 25px;
+}
+
+.ff-style-m-l-15 {
+  margin-left: 15px;
+}
+
+.ff-style-m-r-15 {
+  margin-right: 15px;
+}
+
+.ff-style-m-r-20 {
+  margin-right: 20px;
+}
+
+.ff-style-m-t-10 {
+  margin-top: 10px;
+}
+
+.ff-style-m-t-15 {
+  margin-top: 15px !important;
+}
+
+.ff-style-m-t-25 {
+  margin-top: 25px;
+}
+
+.ff-style-m-b-10px {
+  margin-bottom: 10px;
+}
+
+.ff-style-m-b-15 {
+  margin-bottom: 15px;
+}
+
+.ff-style-m-t-30 {
+  margin-top: 30px;
+}
+
+.ff-style-m-b-50 {
+  margin-bottom: 50px;
+}
+
+.ff-style-m-t-50 {
+  margin-top: 50px;
+}
+
+.ff-style-m-c {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ff-style-m-t-90 {
+  margin-top: 90px;
+}
+
+.ff-w-100 {
+  width: 100%;
+}
+
+.ff-style-m-5p {
+  margin-top: 5%;
+}
+
+@import "../login/_login.scss";
+@import "../portal/_portal.scss";
+@import "../notFound/_notFound.scss";
+@import "../register/_register.scss";

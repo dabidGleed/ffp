@@ -1,0 +1,59 @@
+// TO BE REMOVED
+// .ff-custom-q {
+//   line-height: 40px;
+
+//   .ff-custom-q-h {
+//     color: $black;
+//     height: 49px;
+//     font-weight: 500;
+//     line-height: 49px;
+//     padding-left: 30px;
+//   }
+
+//   ul {
+//     padding: 0;
+//     margin-top: 0;
+//     font-weight: 400;
+//     list-style-type: none;
+
+//     li {
+//       height: 48px;
+//       line-height: 45px;
+//       padding-left: 30px;
+//       border-bottom: 1px solid $grey_200;
+//     }
+//   }
+
+//   .ff-style-p-l-8 {
+//     padding: 0 0 0 8px;
+//   }
+
+//   .ff-custom-q-table {
+//     .md-button.md-icon-button {
+//       margin: 5px 0 0 0;
+
+//       &:hover {
+//         color: $black;
+//       }
+//     }
+//   }
+// }
+
+.ff-popup.ff-custom-question {
+  width: auto;
+  height: auto;
+
+  md-input-container {
+    width: 350px;
+    height: 58px;
+  }
+  .md-button {
+    height: 36px;
+  }
+
+  .ff-add-question-tip {
+    p {
+      margin-top: 0;
+    }
+  }
+}

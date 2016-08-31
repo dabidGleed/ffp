@@ -1,0 +1,49 @@
+<section layout="row" class="ff-reg-done" flex>
+  <div flex="33">
+    <img
+      alt="Rocket"
+      class="ff-rocket"
+      src="/images/rocket.png"
+      ng-if="!registerStepsIndex.showSchoolLogo()">
+
+    <img
+      alt="School Logo"
+      ng-if="registerStepsIndex.showSchoolLogo()"
+      ng-src="{{registerStepsIndex.school.School_logo__c}}">
+  </div>
+  <div flex="66">
+    <h2 ng-style="registerStepsIndex.getSchoolTextColour()">
+      Thank you and welcome!
+    </h2>
+
+    <h1 class="ff-reg-main-h">
+      Let's get your profile set up. It's six steps and will only take a few
+      minutes.
+    </h1>
+
+    <p>
+      Although you can quit at any time, giving us as much information as
+      possible will assist us in tailoring activities and events that work best
+      for you and the school or college.
+    </p>
+
+    <p>
+      Through an active alumni network we can inspire the next generation of
+      students in their life choices and careers.
+    </p>
+
+    <md-divider class="ff-reg-divider"></md-divider>
+    <div layout="row">
+      <md-button
+        class="md-raised md-primary"
+        ui-sref="register.steps.1"
+        ng-style="registerStepsIndex.getSchoolBackgroundColour()">
+        Start
+      </md-button>
+      <span flex="80" class="ff-reg-policy">
+        For peace of mind all information is private and is never given to any
+        third party
+      </span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+<md-dialog aria-label="New message" class="ff-popup ff-maildialog">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 flex>New message</h2>
+      <md-button
+        aria-label="Close"
+        class="md-icon-button"
+        ng-click="mailboxmail.cancel()">
+        <i class="material-icons">close</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <md-contact-chips
+      placeholder="To"
+      md-contact-name="name"
+      md-highlight-flags="i"
+      md-require-match="true"
+      md-contact-image="image"
+      md-contact-email="email"
+      ng-model="mailboxmail.selectedAlumni"
+      md-contacts="mailboxmail.queryAlumni($query)">
+    </md-contact-chips>
+    <input type="text" class="ff-mail-subject" ng-model="mailboxmail.subject"/>
+      <text-angular
+        ng-model="mailboxmail.htmlVariable"
+        ta-target-toolbars="messageToolbar"
+        data-placeholder="Lorem Ipsum">
+      </text-angular>
+
+    <div class="ff-mail-controls">
+      <md-button class="md-raised md-primary ff-popup-btn" aria-label="Send" ng-click="mailboxmail.send()">SEND</md-button>
+      <text-angular-toolbar name="messageToolbar"></text-angular-toolbar>
+    </div>
+  </md-dialog-content>
+</md-dialog>

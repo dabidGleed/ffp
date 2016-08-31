@@ -1,0 +1,65 @@
+<section class="ff-reg-linked" layout="row" flex>
+  <div flex="33" class="ff-reg-img">
+    <img
+      alt="Rocket"
+      class="ff-rocket"
+      src="/images/rocket.png"
+      ng-if="!registerLinkedin.showSchoolLogo()">
+
+    <img
+      alt="School Logo"
+      ng-if="registerLinkedin.showSchoolLogo()"
+      ng-src="{{registerLinkedin.school.School_logo__c}}">
+  </div>
+  <div flex="66">
+    <h1 class="ff-reg-school" ng-style="registerLinkedin.getSchoolTextColour()">
+      {{registerLinkedin.school.School_name__c}}
+    </h1>
+    <h1 class="ff-reg-main-h">Want to give back to your school or college? Let’s keep in touch.</h1>
+    <div layout="row">
+      <div flex="100" layout="column">
+        <md-button
+        md-whiteframe
+        ng-click="registerLinkedin.login()"
+        class="md-padding ff-reg-other">
+          <img src="/images/linkedin_logo.png"
+          alt="Future First Logo"
+          class="ff-social-logo">
+          Accept and join with LinkedIn
+        </md-button>
+        <div class="ff-linkedin-info" layout="column" flex="6">
+          <div layout="row">
+            <a
+            class="btn pull-right"
+            ng-class="{true: 'btn-primary', false: 'btn-danger'}[!tip.open]"
+            ng-click="tip.open = !tip.open">
+              <i class="material-icons">
+                {{!tip.open && 'info_outline' || 'close'}}
+              </i>
+            </a>
+            We recommend LinkedIn for easiest sign up -<a href="#"> why?</a>
+          </div>
+          <!-- <div flex="100"><i class="material-icons">close</i></div> -->
+          <div>
+            LinkedIn provides us with data so that your registration is easier and we
+            get the most accurate information. You'll sign into LinkedIn through a
+            popup window and then we'll take it from there. By using LinkedIn you'll
+            not be required to verify your email or set a password in the future. It's
+            fast and easy!
+          </div>
+        </div>
+      </div>
+
+      <div flex="1" class="md-padding ff-style-m-t-30">or</div>
+      <div flex="3" layout="row">
+        <md-button
+          md-whiteframe
+          ui-sref="register.other"
+          class="md-padding ff-reg-other ff-reg-special">
+          I want to join<br />
+          another way
+        </md-button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+<h1 class="ff-reg-main-h">Other schools/colleges you attended</h1>
+
+<p>
+  If you went to any other schools or colleges as well, please let us know here:
+</p>
+
+<md-chips
+  md-autocomplete-snap
+  md-require-match="true"
+  ng-model="registerSteps6.otherSchools">
+  <md-autocomplete
+    md-item-text="i"
+    placeholder="School/College"
+    md-search-text="registerSteps6.searchSchools"
+    md-selected-item="registerSteps6.selectedSchool"
+    md-items="i in registerSteps6.querySearch(registerSteps6.searchSchools)">
+    <span md-highlight-text="registerSteps6.searchSchools">{{i}}</span>
+  </md-autocomplete>
+  <md-chip-template>{{$chip}}</md-chip-template>
+</md-chips>

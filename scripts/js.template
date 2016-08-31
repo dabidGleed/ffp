@@ -1,0 +1,34 @@
+import angular from 'angular';
+import uiRouter from 'angular-ui-router';
+import angularMeteor from 'angular-meteor';
+
+import './moduleNameHere.html';
+
+const name = 'moduleNameHere';
+
+const config = ($stateProvider) => {
+  'ngInject';
+
+  $stateProvider.state('moduleNameHere', {
+    url: '/moduleNameHere',
+    template: '<moduleNameHere></moduleNameHere>',
+  });
+};
+
+class ModuleNameHere {
+  constructor() {
+    'ngInject';
+  }
+}
+
+export default angular
+  .module(name, [
+    uiRouter,
+    angularMeteor,
+  ])
+  .component(name, {
+    controllerAs: name,
+    controller: ModuleNameHere,
+    templateUrl: `imports/ui/components/${name}/${name}.html`,
+  })
+  .config(config);

@@ -1,0 +1,105 @@
+<md-sidenav md-is-locked-open="true" class="md-whiteframe-z2 ff-sidenav">
+  <header>
+    <img src="/images/logo.png" class="ff-logo" alt="Future First Logo">
+  </header>
+  <md-content flex>
+    <md-list>
+      <md-list-item class="ff-navitem">
+        <md-button
+          ui-sref="portal.dashboard"
+          ui-sref-active="{ 'active': 'portal.dashboard' }">
+          <i class="material-icons ff-navicon">desktop_windows</i>
+          <div class="ff-navtext">
+            Dashboard
+          </div>
+        </md-button>
+      </md-list-item>
+
+      <md-list-item class="ff-navitem">
+        <md-button
+          ui-sref="portal.search.index"
+          ui-sref-active="{ 'active': 'portal.search' }">
+          <i class="material-icons ff-navicon">perm_identity</i>
+          <div class="ff-navtext">
+            Search alumni
+          </div>
+        </md-button>
+      </md-list-item>
+
+      <md-list-item class="ff-navitem">
+        <md-button
+          ui-sref="portal.mailbox"
+          ui-sref-active="{ 'active': 'portal.mailbox' }">
+          <i class="material-icons ff-navicon">mail_outline</i>
+          <div class="ff-navtext">
+            Mailbox
+          </div>
+        </md-button>
+      </md-list-item>
+
+      <md-list-item class="ff-navitem">
+        <md-button
+          ui-sref="portal.activities.index"
+          ui-sref-active="{ 'active': 'portal.activities' }">
+          <i class="material-icons ff-navicon">today</i>
+          <div class="ff-navtext">
+            Alumni activities
+          </div>
+        </md-button>
+      </md-list-item>
+
+      <md-list-item class="ff-navitem">
+        <md-button
+          ui-sref="portal.customise"
+          ui-sref-active="{ 'active': 'portal.customise' }">
+          <i class="material-icons ff-navicon">mode_edit</i>
+          <div class="ff-navtext ff-navtextdouble">
+            Customise<br>sign up form
+          </div>
+        </md-button>
+      </md-list-item>
+
+      <md-list-item class="ff-navitem">
+        <md-button
+          ui-sref="portal.account.index"
+          ui-sref-active="{ 'active': 'portal.account' }">
+          <i class="material-icons ff-navicon">settings</i>
+          <div class="ff-navtext">
+            My account
+          </div>
+        </md-button>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <md-list-item class="ff-navitem ff-signout">
+        <md-button ng-click="portal.logout()">
+          <i class="material-icons ff-navicon">exit_to_app</i>
+          <div class="ff-navtext">
+            Sign out
+          </div>
+        </md-button>
+      </md-list-item>
+    </md-list>
+  </md-content>
+  <a href="http://thinkup.io/" target="_blank" class="tu-logo ff-style-t-c"><img src="/images/tu_logo.png"></a>
+</md-sidenav>
+
+<div layout="column" flex>
+  <md-toolbar class="md-whiteframe-z2 ff-content-toolbar">
+    <div class="md-toolbar-tools ff-container ff-header">
+      <h2 class="ff-schoolname">TEST SCHOOL</h2>
+    </div>
+  </md-toolbar>
+
+  <md-content flex>
+    <div ui-view="" class="ff-container"></div>
+    <footer>
+    <div>
+      &copy;Future First Alumni Limited. Future First Alumni Limited, operating
+      under the name 'Future First', is a charity registered in England and
+      Wales (number 1135638) and in Scotland (number SC043973)
+    </div>
+    </footer>
+  </md-content>
+</div>

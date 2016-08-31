@@ -1,0 +1,38 @@
+<h1 class="ff-reg-main-h">Employment</h1>
+
+<h3 ng-if="!registerSteps3.empHistory.length">
+  No employment history
+</h3>
+
+<h3 ng-if="registerSteps3.empHistory.length">
+  Employment history
+</h3>
+
+<div
+  layout="row"
+  class="ff-reg-li"
+  ng-repeat="emp in registerSteps3.empHistory | orderBy:'-from'" >
+  <div layout="column" flex="85">
+    <b>{{emp.role}} at {{emp.employer}}</b>
+    <div flex>{{registerSteps3.datesToS(emp)}}</div>
+  </div>
+  <div flex="15">
+    <md-button
+      class="md-icon-button"
+      ng-click="registerSteps3.openModal(emp, 'edit')">
+      <i class="material-icons">edit</i>
+    </md-button>
+    <md-button
+      class="md-icon-button ff-i-del"
+      ng-click="registerSteps3.remove(emp.$$hashKey)">
+      <i class="material-icons">delete</i>
+    </md-button>
+  </div>
+</div>
+
+<md-button
+  class="md-icon-button ff-grey md-36"
+  aria-label="Add employment history"
+  ng-click="registerSteps3.openModal()">
+  <i class="material-icons md-36">add_box</i>
+</md-button>

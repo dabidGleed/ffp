@@ -1,0 +1,457 @@
+.ff-register {
+  width: 1030px;
+  margin: 0 auto;
+  font-size: 20px;
+
+  header .ff-logo {
+    width: 180px;
+    padding: 15px 0;
+  }
+
+  h1.ff-reg-main-h {
+    font-size: 42px;
+    font-weight: 300;
+    margin-top: 90px;
+    margin-bottom: 70px;
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: normal;
+  }
+
+  .ff-avatar {
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    border-radius: 50%;
+  }
+
+  .ff-icon-avatar {
+    width: 290px;
+    height: 290px;
+    margin-top: 50px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: $grey_200;
+
+    i.material-icons {
+      width: 90px;
+      height: 90px;
+      margin-top: 50px;
+    }
+  }
+
+  .ff-left,
+  .ff-right {
+    md-radio-button {
+      margin: 0;
+      width: 300px;
+      height: 100px;
+      padding: 35px;
+
+      .md-container {
+        left: 25px;
+      }
+    }
+  }
+
+  .ff-rocket {
+    margin: 50px 0 0 -480px;
+  }
+
+  .ff-left {
+    margin-right: 5px;
+  }
+
+  .ff-right {
+    margin-left: 5px;
+  }
+
+  md-autocomplete, md-autocomplete-wrap {
+    height: 50px;
+    box-shadow: none;
+    line-height: 50px;
+
+    &.ff-reg-1 {
+      margin-top: 50px;
+      margin-bottom: 30px;
+
+      button {
+        width: 0;
+        margin: 0;
+        height: 0;
+        top: 25px;
+        right: 20px;
+      }
+    }
+
+    input:not(.md-input) {
+      height: 50px;
+      font-size: 20px;
+      border: solid 1px $grey_200;
+      box-shadow:
+      rgba(0, 0, 0, 0.2) 0px 1px 3px 0px,
+      rgba(0, 0, 0, 0.137255) 0px 1px 1px 0px,
+      rgba(0, 0, 0, 0.117647) 0px 2px 1px -1px;
+
+      &:disabled {
+        box-shadow: none;
+      }
+    }
+
+    input::placeholder {
+      color: $grey_300;
+
+      &:disabled {
+        color: $grey_200;
+      }
+    }
+  }
+
+  .md-button.md-primary.md-raised {
+    color: $black;
+    margin-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .md-button, .md-button[disabled] {
+    height: 51px;
+    font-size: 20px;
+    line-height: 51px;
+  }
+
+  .md-button {
+    color: $black;
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+
+  }
+
+  i.material-icons.ff-message-icon {
+    top: 4px;
+    color: $red;
+    width: 36px;
+    height: 36px;
+    font-size: 36px;
+    margin-right: 5px;
+    line-height: 36px;
+    position: relative;
+  }
+
+  a.ff-reg-other, button.ff-reg-other {
+    width: 450px;
+    height: 100px;
+    font-size: 24px;
+    text-align: left;
+    line-height: 100px;
+    font-weight: normal;
+    text-transform: none;
+    margin: 10px 0 10px 0;
+
+    &.ff-reg-special {
+      width: 190px;
+      line-height: 29px;
+      padding-top: 20px;
+      text-align: center;
+    }
+  }
+
+  .ff-social-logo, a.ff-social-logo {
+    height: 62px;
+    padding-right: 10px;
+    vertical-align: middle;
+  }
+  .ff-linkedin-info {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 25px;
+  }
+
+  md-input-container {
+    padding: 0;
+    height: 58px;
+    max-width: 370px;
+    margin: 0 0 35px 0;
+  }
+
+  .ff-reg-datepicker {
+      margin-top: 7px;
+      margin-bottom: 61px;
+
+    .md-datepicker-input {
+      font-size: 16px;
+      color: $grey_300;
+      min-width: 308px;
+    }
+
+    label {
+      color: $grey_300;
+    }
+
+    md-icon {
+      color: $grey_300;
+    }
+  }
+
+  .ff-reg-m-input {
+    margin-top: 41px;
+  }
+
+  .ff-reg-input-f {
+    margin-top: -8px;
+    min-height: 58px;
+    max-width: 370px;
+
+    label {
+      position: absolute;
+      // Configure this after chips are enabled
+      left: -4px;
+      bottom: 45px;
+      opacity: .38;
+      font-size: 20px;
+      color: $grey_400;
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+
+    .md-chips .md-chip-input-container {
+      width: 100%;
+    }
+
+    input {
+      color: $black;
+      font-size: 20px;
+      font-weight: normal;
+      }
+  }
+
+  .ff-reg-policy {
+    font-size: 14px;
+    color: $grey_400;
+    line-height: 51px;
+    text-align: right;
+
+    a {
+      color: $black;
+      text-decoration: none;
+
+      &:hover {
+      text-decoration: underline;
+      }
+    }
+  }
+
+  .md-chips.md-focused {
+    box-shadow:0 2px $pink_200;
+  }
+
+  .ff-reg-add-photo {
+    width: 175px;
+    height: 175px;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-left: auto;
+    border-radius: 50%;
+    text-align: center;
+    background-color: #E4E4E4;
+
+    i {
+      color: $white;
+      font-size: 120px;
+      padding: 20px 0 0 0;
+      margin: 5px 20px 20px 20px;
+
+      &:hover:before {
+        cursor: pointer;
+        content: "add_a_photo";
+      }
+    }
+  }
+
+  md-divider.ff-reg-divider {
+    color: $grey_300;
+    margin: 120px 0 15px 0;
+  }
+
+  h1.ff-reg-steps, .ff-reg-done h1.ff-reg-main-h {
+    font-size: 36px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  .ff-reg-done {
+    h2 {
+      font-size: 42px;
+      margin-top: 80px;
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    &.ff-reg-step-done {
+      i {
+        width: 53px;
+        height: 53px;
+        color: white;
+        font-size: 30px;
+        cursor: default;
+        margin-right: 5px;
+        line-height: 52px;
+        border-radius: 50%;
+        text-align: center;
+        background-color: $pink_200;
+      }
+    }
+  }
+  .ff-register-steps {
+    height: 53px;
+
+    .ff-stepcircle {
+      z-index: 2;
+      width: 53px;
+      height: 53px;
+      color: $white;
+      font-size: 30px;
+      margin-top: 30px;
+      line-height: 52px;
+      margin-right: 46px;
+      position: relative;
+      text-align: center;
+      border-radius: 50%;
+      display: inline-block;
+      text-decoration: none;
+      background: $grey_200;
+
+      &.ff-step-visited, &:last-child {
+        margin-right: 0;
+        background-color: $blue_500;
+
+        &:hover {
+          background: $blue_400;
+        }
+
+        i {
+          width: 45px;
+          height: 33px;
+          font-size: 46px;
+          display: -webkit-inline-box;
+        }
+      }
+
+      &:before {
+        top: 50%;
+        z-index: 1;
+        content: "";
+        width: 35px;
+        right: -43px;
+        display: block;
+        position: absolute;
+        border-top: 1px solid $grey_200;
+      }
+
+      &:last-child {
+        &:before {
+          display: none;
+        }
+      }
+
+      &.active {
+        background: $pink_200;
+      }
+    }
+  }
+  .ff-reg-li {
+    border-bottom: solid $grey_200 1px;
+    margin-bottom: 20px;
+  }
+}
+
+footer.ff-onboard-footer {
+    height: 364px;
+    margin-top: 160px;
+    min-width: 1170px;
+    max-width: initial;
+    margin-right: auto;
+    padding: 50px 0 90px 0;
+    background-color: $grey_100;
+
+    h2 {
+      color: $black;
+      line-height: 1;
+      font-size: 48px;
+      font-size: 3rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 17px;
+      font-weight: 300;
+      color: $grey_400;
+    }
+
+    div {
+      width: 100%;
+    }
+
+    .ff-onboard-partners {
+      width: 100%;
+      max-width: 1170px;
+      min-width: 1170px;
+
+      a {
+        padding: 10px 0;
+        margin-bottom: 24px;
+        transition: all .6s ease-in-out;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      .shawbrook_logo {
+        width: 237px;
+        height: 37px;
+      }
+
+      .taylorwessing_logo {
+        width: 207px;
+        height: 31px;
+      }
+
+      .rbs_logo {
+        width: 102px;
+        height: 30px;
+      }
+
+      .cityoflondon_logo {
+        width: 93px;
+        height: 41px;
+      }
+
+      .ubs_logo {
+        width: 120px;
+        height: 47px;
+      }
+
+      .dulvertontrust_logo {
+        width: 252px;
+        height: 15px;
+      }
+
+      .wellcometrust_logo {
+        width: 220px;
+        height: 28px;
+      }
+
+      .cet_logo {
+        width: 219px;
+        height: 32px;
+      }
+    }
+  }

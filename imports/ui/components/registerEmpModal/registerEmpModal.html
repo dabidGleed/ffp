@@ -1,0 +1,95 @@
+<md-dialog aria-label="Employment" class="ff-popup ff-regdialog">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 flex>Add employment history</h2>
+      <md-button
+        aria-label="Close"
+        class="md-icon-button"
+        ng-click="registerEmpModal.cancel()">
+        <i class="material-icons">close</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <form name="employmentForm" flex>
+      <div layout="row">
+        <div flex="50">
+          <md-autocomplete
+            flex
+            required
+            md-item-text="i"
+            md-floating-label="Employer*"
+            md-search-text="registerEmpModal.searchEmployer"
+            md-selected-item="registerEmpModal.employment.employer"
+            md-items="i in registerEmpModal.q(registerEmpModal.searchEmployer)">
+            <md-item-template>
+              <span md-highlight-text="registerEmpModal.searchEmployer">
+                {{i}}
+              </span>
+            </md-item-template>
+          </md-autocomplete>
+        </div>
+        <div  flex-offset="5" class="md-block ff-style-m-t-25">
+          <md-checkbox
+            ng-model="registerEmpModal.employment.onScheme">
+            On government scheme
+          </md-checkbox>
+        </div>
+      </div>
+
+      <div>
+        <md-input-container
+
+          ng-if="registerEmpModal.employment.onScheme"
+          ng-required="registerEmpModal.employment.onScheme">
+          <label>Government scheme*</label>
+          <input ng-model="registerEmpModal.employment.scheme" required>
+        </md-input-container>
+      </div>
+      <div flex>
+        <md-input-container>
+          <label>Role/Details*</label>
+          <input ng-model="registerEmpModal.employment.role" required>
+        </md-input-container>
+      </div>
+
+      <div layout="row" class="">
+        <div flex="33">
+          <label class="md-caption">From*</label>
+          <md-datepicker
+            required
+            ng-model="registerEmpModal.employment.from">
+          </md-datepicker>
+        </div>
+
+        <div flex="33" flex-offset="5">
+          <label class="md-caption">To*</label>
+          <md-datepicker
+            ng-model="registerEmpModal.employment.to"
+            ng-disabled="registerEmpModal.employment.ongoing"
+            ng-required="!registerEmpModal.employment.ongoing">
+          </md-datepicker>
+        </div>
+
+        <div flex="20" flex-offset="5" class="ff-style-m-t-25">
+          <md-checkbox
+            ng-change="registerEmpModal.clearTo()"
+            ng-model="registerEmpModal.employment.ongoing">
+            Ongoing
+          </md-checkbox>
+        </div>
+      </div>
+
+      <md-button
+        aria-label="Save"
+        ng-click="registerEmpModal.save()"
+        ng-disabled="employmentForm.$invalid">
+        <span ng-if="registerEmpModal.isNew()">Add</span>
+        <span ng-if="!registerEmpModal.isNew()">Save</span>
+      </md-button>
+      <md-button ng-click="registerEmpModal.cancel()">
+        Cancel
+      </md-button>
+    </form>
+  </md-dialog-content>
+</md-dialog>

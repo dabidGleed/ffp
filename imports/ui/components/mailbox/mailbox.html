@@ -1,0 +1,103 @@
+<md-card md-whiteframe class="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2 flex>Mailbox</h2>
+    </div>
+  </md-toolbar>
+  <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="INBOX">
+      <md-content>
+        <md-subheader
+          md-whiteframe="1"
+          class="ff-tablesubheader ff-mailboxsubheader">
+          <div class="ff-imgcheck">&nbsp;</div>
+          <div class="ff-text">From</div>
+          <div class="ff-text ff-attach-col"></div>
+          <div class="ff-text ff-subject-col">Subject</div>
+          <div class="ff-text">Date and time</div>
+        </md-subheader>
+        <md-virtual-repeat-container
+          class="ff-tablelist"
+          ng-style="mailbox.height">
+          <div
+            class="ff-tablerow"
+            md-virtual-repeat="item in mailbox.inbox">
+            <div class="ff-imgcheck">
+              <img src="{{item.from.image}}">
+            </div>
+            <div class="ff-text">{{item.from.name}}</div>
+            <div class="ff-text ff-attach-col">
+              <i
+                ng-if="item.attachments.length > 0"
+                class="material-icons">attach_file
+              </i>
+            </div>
+            <div class="ff-text ff-subject-col">
+              {{item.subject}}
+            </div>
+            <div class="ff-text">{{item.date | date:'dd/MM/yyyy HH:mm'}}</div>
+            <div class="ff-minitext">{{item.type}}</div>
+          </div>
+        </md-virtual-repeat-container>
+      </md-content>
+    </md-tab>
+    <md-tab label="SENT MAIL">
+      <md-content>
+        <md-subheader
+          md-whiteframe="1"
+          class="ff-tablesubheader ff-mailboxsubheader">
+          <div class="ff-imgcheck">&nbsp;</div>
+          <div class="ff-text">To</div>
+          <div class="ff-text ff-attach-col"></div>
+          <div class="ff-text ff-subject-col">Subject</div>
+          <div class="ff-text">Date and time</div>
+        </md-subheader>
+        <md-virtual-repeat-container
+          class="ff-tablelist"
+          ng-style="mailbox.height">
+          <div
+            class="ff-tablerow"
+            md-virtual-repeat="item in mailbox.outbox">
+            <div class="ff-imgcheck">
+              <img src="{{item.to.image}}">
+            </div>
+            <div class="ff-text">{{item.to.name}}</div>
+            <div class="ff-text ff-attach-col">
+              <i
+                ng-if="item.attachments.length > 0"
+                class="material-icons">attach_file
+              </i>
+            </div>
+            <div class="ff-text ff-subject-col">{{item.subject}}</div>
+            <div class="ff-text">{{item.date | date:'dd/MM/yyyy HH:mm'}}</div>
+            <div class="ff-minitext">{{item.type}}</div>
+          </div>
+        </md-virtual-repeat-container>
+      </md-content>
+    </md-tab>
+  </md-tabs>
+  <div class="ff-fabcontainer">
+    <md-fab-speed-dial md-direction="up" class="md-fling">
+      <md-fab-trigger>
+        <md-button aria-label="Menu" class="md-fab">
+          <i class="material-icons">menu</i>
+        </md-button>
+      </md-fab-trigger>
+      <md-fab-actions>
+        <md-button
+          aria-label="Compose email"
+          ng-click="mailbox.openMail()"
+          class="md-fab md-raised md-mini sub-fab">
+          <md-tooltip md-direction="left">Compose email</md-tooltip>
+          <i class="material-icons">mode_edit</i>
+        </md-button>
+        <md-button
+          aria-label="Email all alumni"
+          class="md-fab md-raised md-mini sub-fab">
+          <md-tooltip md-direction="left">Email all alumni</md-tooltip>
+            <i class="material-icons">people_outline</i>
+        </md-button>
+      </md-fab-actions>
+    </md-fab-speed-dial>
+  </div>
+</md-card>

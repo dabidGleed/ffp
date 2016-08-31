@@ -1,0 +1,95 @@
+<section layout="row" flex>
+  <div flex="33">
+    <img
+      alt="Rocket"
+      class="ff-rocket"
+      src="/images/rocket.png"
+      ng-if="!registerEmail.showSchoolLogo()">
+
+    <img
+      alt="School Logo"
+      ng-if="registerEmail.showSchoolLogo()"
+      ng-src="{{registerEmail.school.School_logo__c}}">
+  </div>
+  <div flex="66">
+    <h1 class="ff-reg-main-h" ng-style="registerEmail.getSchoolTextColour()">
+      {{registerEmail.school.School_name__c}}
+    </h1>
+
+    <h2>Invites you to join our alunmni network</h2>
+
+    <form name="emailsignup">
+      <md-input-container class="md-block">
+        <label>First name</label>
+        <input
+          required
+          type="text"
+          name="first"
+          ng-model="registerEmail.alumnusData.firstName">
+        <div ng-messages="emailsignup.first.$error">
+          <div ng-message-exp="['required']">
+            You must enter your first name
+          </div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Last name</label>
+        <input
+          required
+          type="text"
+          name="last"
+          ng-model="registerEmail.alumnusData.lastName">
+        <div ng-messages="emailsignup.last.$error">
+          <div ng-message-exp="['required']">
+            You must enter your last name
+          </div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Previous name</label>
+        <input type="text" ng-model="registerEmail.alumnusData.previousName">
+        <div class="ff-hint">
+          If you were known by a differetn last name at this school or college
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>Email</label>
+        <input
+          type="email"
+          name="email"
+          required
+          minlength="10"
+          maxlength="100"
+          ng-pattern="/^.+@.+\..+$/"
+          ng-model="registerEmail.alumnusData.email">
+        <div class="ff-hint">
+          We'll send you an email to verify this address
+        </div>
+        <div ng-messages="emailsignup.email.$error">
+          <div ng-message-exp="['required','minlength','maxlength','pattern']">
+            You must enter a valid email address
+          </div>
+        </div>
+      </md-input-container>
+
+      <md-divider class="ff-reg-divider"></md-divider>
+
+      <div layout="row" flex>
+        <md-button
+          class="md-raised ff-main-btn"
+          ng-disabled="emailsignup.$invalid"
+          ng-click="registerEmail.register()">
+          Join
+        </md-button>
+        <md-button ui-sref="register.index">Cancel</md-button>
+        <span flex="65" class="ff-reg-policy">
+          By signing up you are accepting the
+          <a href="#" target="_blank"><b>Privacy Policy</b></a>
+        </span>
+      </div>
+    </form>
+  </div>
+</section>

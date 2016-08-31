@@ -1,0 +1,14 @@
+{
+  "extends": "airbnb",
+  "globals": {
+    "it": true,
+    "HTTP": true,
+    "Mongo": true,
+    "Picker": true,
+    "expect": true,
+    "Meteor": true,
+    "Session": true,
+    "describe": true,
+    "Accounts": true,
+  }
+}

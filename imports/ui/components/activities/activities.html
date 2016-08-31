@@ -1,0 +1,464 @@
+<md-card md-whiteframe class="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2 flex>Alumni activities</h2>
+      <md-button
+        class="md-icon-button"
+        aria-label="Filters"
+        ui-sref="portal.activities.add">
+        <i class="material-icons">add</i>
+      </md-button>
+      <md-menu
+        md-offset="0 50"
+        class="md-icon-button"
+        md-position-mode="target-right target">
+        <md-button
+          class="md-icon-button"
+          aria-label="Created by"
+          ng-click="activities.openMenu($mdOpenMenu, $event)">
+          <i class="material-icons">more_vert</i>
+        </md-button>
+        <md-menu-content>
+          <md-radio-group ng-model="mailbox.columns">
+            <md-menu-item>
+              <md-button aria-label="Show SMS only">
+                <md-radio-button value="sms" class="ff-radioinmenu">
+                  Show activities created by John Kirk
+                </md-radio-button>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button aria-label="Show email only">
+                <md-radio-button value="email" class="ff-radioinmenu">
+                  Show activities created by David Knoll
+                </md-radio-button>
+              </md-button>
+            </md-menu-item>
+          </md-radio-group>
+        </md-menu-content>
+      </md-menu>
+      <md-input-container
+        class="ff-searchinput"
+        ng-show="activities.showSearch">
+        <input
+          type="search"
+          aria-label="Search"
+          ng-model="activities.searchText">
+      </md-input-container>
+      <md-button
+        aria-label="Search"
+        class="md-icon-button"
+        ng-click="activities.toggleSearch()">
+        <i class="material-icons">search</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-tabs class="ff-activity" md-dynamic-height md-border-bottom>
+    <md-tab label="ALL ACTIVITIES">
+      <md-content>
+        <h2 class="ff-style-m-l-15 ff-style-m-r-15 ff-style-m-b-10px">Upcoming activities</h2>
+        <div layout="row">
+          <div flex="50">
+            <md-card md-whiteframe class="ff-card">
+              <div class="ff-activitycard">
+                <div class="md-toolbar-tools">
+                  <h3 flex>Assembly</h3>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ui-sref="portal.activities.add">
+                    <i class="material-icons">mode_edit</i>
+                  </md-button>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ng-click="activities.deleteActivity(1)">
+                    <i class="material-icons">delete</i>
+                  </md-button>
+                </div>
+              </div>
+              <md-content>
+                <div flex="100" layout="row" class="md-padding">
+                  <div layout="column" flex="70">Future activity</div>
+                  <div layout="column" flex="30">Date: 12/05/2000</div>
+                </div>
+                <md-divider></md-divider>
+                <div class="md-padding ff-activity-alumni" layout="row">
+                  <div layout="column" flex="40">
+                    <b>Alumni added:</b>
+                    <b>Attending:</b>
+                    <b>Maybe:</b>
+                    <b>Declined:</b>
+                    <b>Awaiting response:</b>
+                  </div>
+                  <div layout="column">
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                  </div>
+                </div>
+
+                <div layout="row" class="md-padding">
+                  <div flex="40"><b>Staff contact:</b></div>
+                  <div flex="60">Test</div>
+                </div>
+
+                <md-divider></md-divider>
+                <div class="md-padding">
+                  <div><b>Notes:</b></div>
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+              </md-content>
+            </md-card>
+          </div>
+
+          <div flex="50">
+            <md-card md-whiteframe class="ff-card">
+              <div class="ff-activitycard">
+                <div class="md-toolbar-tools">
+                  <h3 flex>Assembly</h3>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ui-sref="portal.activities.add">
+                    <i class="material-icons">mode_edit</i>
+                  </md-button>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ng-click="activities.deleteActivity(1)">
+                    <i class="material-icons">delete</i>
+                  </md-button>
+                </div>
+              </div>
+              <md-content>
+                <div flex="100" layout="row" class="md-padding">
+                  <div layout="column" flex="70">Future activity</div>
+                  <div layout="column" flex="30">Date: 12/05/2000</div>
+                </div>
+                <md-divider></md-divider>
+                <div class="md-padding ff-activity-alumni" layout="row">
+                  <div layout="column" flex="40">
+                    <b>Alumni added:</b>
+                    <b>Attending:</b>
+                    <b>Maybe:</b>
+                    <b>Declined:</b>
+                    <b>Awaiting response:</b>
+                  </div>
+                  <div layout="column">
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                  </div>
+                </div>
+
+                <div layout="row" class="md-padding">
+                  <div flex="40"><b>Staff contact:</b></div>
+                  <div flex="60">Test</div>
+                </div>
+
+                <md-divider></md-divider>
+                <div class="md-padding">
+                  <div><b>Notes:</b></div>
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+              </md-content>
+            </md-card>
+          </div>
+        </div>
+        <h2 class="ff-style-m-l-15 ff-style-m-r-15 ff-style-m-b-10px">Past activities</h2>
+        <div layout="row">
+          <div flex="50">
+            <md-card md-whiteframe class="ff-card">
+              <div class="ff-activitycard">
+                <div class="md-toolbar-tools">
+                  <h3 flex>Assembly</h3>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ui-sref="portal.activities.add">
+                    <i class="material-icons">mode_edit</i>
+                  </md-button>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ng-click="activities.deleteActivity(1)">
+                    <i class="material-icons">delete</i>
+                  </md-button>
+                </div>
+              </div>
+              <md-content>
+                <div flex="100" layout="row" class="md-padding">
+                  <div layout="column" flex="70">Future activity</div>
+                  <div layout="column" flex="30">Date: 12/05/2000</div>
+                </div>
+                <md-divider></md-divider>
+                <div class="md-padding ff-activity-alumni" layout="row">
+                  <div layout="column" flex="40">
+                    <b>Alumni added:</b>
+                    <b>Attending:</b>
+                    <b>Maybe:</b>
+                    <b>Declined:</b>
+                    <b>Awaiting response:</b>
+                  </div>
+                  <div layout="column">
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                  </div>
+                </div>
+
+                <div layout="row" class="md-padding">
+                  <div flex="40"><b>Staff contact:</b></div>
+                  <div flex="60">Test</div>
+                </div>
+
+                <md-divider></md-divider>
+                <div class="md-padding">
+                  <div><b>Notes:</b></div>
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+              </md-content>
+            </md-card>
+          </div>
+          <div flex="50">
+            <md-card md-whiteframe class="ff-card">
+              <div class="ff-activitycard">
+                <div class="md-toolbar-tools">
+                  <h3 flex>Assembly</h3>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ui-sref="portal.activities.add">
+                    <i class="material-icons">mode_edit</i>
+                  </md-button>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ng-click="activities.deleteActivity(1)">
+                    <i class="material-icons">delete</i>
+                  </md-button>
+                </div>
+              </div>
+              <md-content>
+                <div flex="100" layout="row" class="md-padding">
+                  <div layout="column" flex="70">Future activity</div>
+                  <div layout="column" flex="30">Date: 12/05/2000</div>
+                </div>
+                <md-divider></md-divider>
+                <div class="md-padding ff-activity-alumni" layout="row">
+                  <div layout="column" flex="40">
+                    <b>Alumni added:</b>
+                    <b>Attending:</b>
+                    <b>Maybe:</b>
+                    <b>Declined:</b>
+                    <b>Awaiting response:</b>
+                  </div>
+                  <div layout="column">
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                  </div>
+                </div>
+
+                <div layout="row" class="md-padding">
+                  <div flex="40"><b>Staff contact:</b></div>
+                  <div flex="60">Test</div>
+                </div>
+
+                <md-divider></md-divider>
+                <div class="md-padding">
+                  <div><b>Notes:</b></div>
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+              </md-content>
+            </md-card>
+          </div>
+      </md-content>
+    </md-tab>
+    <md-tab label="other">
+      <md-content>
+        <h2 class="md-padding">Upcoming activities</h2>
+        <div layout="row">
+          <div flex="50">
+            <md-card md-whiteframe class="ff-card">
+              <div class="ff-activitycard">
+                <div class="md-toolbar-tools">
+                  <h3 flex>Assembly</h3>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ui-sref="portal.activities.add">
+                    <i class="material-icons">mode_edit</i>
+                  </md-button>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ng-click="activities.deleteActivity(1)">
+                    <i class="material-icons">delete</i>
+                  </md-button>
+                </div>
+              </div>
+              <md-content>
+                <div flex="100" layout="row" class="md-padding">
+                  <div layout="column" flex="70">Other activity</div>
+                  <div layout="column" flex="30">Date: 12/05/2000</div>
+                </div>
+                <md-divider></md-divider>
+                <div class="md-padding ff-activity-alumni" layout="row">
+                  <div layout="column" flex="40">
+                    <b>Alumni added:</b>
+                    <b>Attending:</b>
+                    <b>Maybe:</b>
+                    <b>Declined:</b>
+                    <b>Awaiting response:</b>
+                  </div>
+                  <div layout="column">
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                  </div>
+                </div>
+
+                <div layout="row" class="md-padding">
+                  <div flex="40"><b>Staff contact:</b></div>
+                  <div flex="60">Test</div>
+                </div>
+
+                <md-divider></md-divider>
+                <div class="md-padding">
+                  <div><b>Notes:</b></div>
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+              </md-content>
+            </md-card>
+          </div>
+
+          <div flex="50">
+            <md-card md-whiteframe class="ff-card">
+              <div class="ff-activitycard">
+                <div class="md-toolbar-tools">
+                  <h3 flex>Assembly</h3>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ui-sref="portal.activities.add">
+                    <i class="material-icons">mode_edit</i>
+                  </md-button>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ng-click="activities.deleteActivity(1)">
+                    <i class="material-icons">delete</i>
+                  </md-button>
+                </div>
+              </div>
+              <md-content>
+                <div flex="100" layout="row" class="md-padding">
+                  <div layout="column" flex="70">Other activity</div>
+                  <div layout="column" flex="30">Date: 12/05/2000</div>
+                </div>
+                <md-divider></md-divider>
+                <div class="md-padding ff-activity-alumni" layout="row">
+                  <div layout="column" flex="40">
+                    <b>Alumni added:</b>
+                    <b>Attending:</b>
+                    <b>Maybe:</b>
+                    <b>Declined:</b>
+                    <b>Awaiting response:</b>
+                  </div>
+                  <div layout="column">
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                  </div>
+                </div>
+
+                <div layout="row" class="md-padding">
+                  <div flex="40"><b>Staff contact:</b></div>
+                  <div flex="60">Test</div>
+                </div>
+
+                <md-divider></md-divider>
+                <div class="md-padding">
+                  <div><b>Notes:</b></div>
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+              </md-content>
+            </md-card>
+          </div>
+        </div>
+        <h2 class="md-padding">Past activities</h2>
+        <div layout="row">
+          <div flex="50">
+            <md-card md-whiteframe class="ff-card">
+              <div class="ff-activitycard">
+                <div class="md-toolbar-tools">
+                  <h3 flex>Assembly</h3>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ui-sref="portal.activities.add">
+                    <i class="material-icons">mode_edit</i>
+                  </md-button>
+                  <md-button
+                    class="md-icon-button"
+                    aria-label="Filters"
+                    ng-click="activities.deleteActivity(1)">
+                    <i class="material-icons">delete</i>
+                  </md-button>
+                </div>
+              </div>
+              <md-content>
+                <div flex="100" layout="row" class="md-padding">
+                  <div layout="column" flex="70">Other activity</div>
+                  <div layout="column" flex="30">Date: 12/05/2000</div>
+                </div>
+                <md-divider></md-divider>
+                <div class="md-padding ff-activity-alumni" layout="row">
+                  <div layout="column" flex="40">
+                    <b>Alumni added:</b>
+                    <b>Attending:</b>
+                    <b>Maybe:</b>
+                    <b>Declined:</b>
+                    <b>Awaiting response:</b>
+                  </div>
+                  <div layout="column">
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                    <a href="#">1</a>
+                  </div>
+                </div>
+
+                <div layout="row" class="md-padding">
+                  <div flex="40"><b>Staff contact:</b></div>
+                  <div flex="60">Test</div>
+                </div>
+
+                <md-divider></md-divider>
+                <div class="md-padding">
+                  <div><b>Notes:</b></div>
+                  <p>Lorem ipsum dolor sit amet</p>
+                </div>
+              </md-content>
+            </md-card>
+          </div>
+        </div>
+      </md-content>
+    </md-tab>
+  </md-tabs>
+</md-card>

@@ -1,0 +1,23 @@
+.ff-activity {
+  .ff-activitycard {
+    .md-toolbar-tools {
+      color: $white;
+      background: $blue_500;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: $pink_200;
+    width: auto;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .ff-activity-alumni {
+    b:not(:last-child), a:not(:last-child) {
+      padding: 5px 0 5px 0;
+    }
+  }
+}

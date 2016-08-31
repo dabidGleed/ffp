@@ -1,0 +1,85 @@
+.ff-login {
+  width: 696px;
+  height: 673px;
+
+  // Registration & Sign in
+  .ff-sign-in-header {
+    height: 300px;
+    background: none;
+
+    img {
+      margin-top: 20px;
+      width: 288px;
+      height: inherit;
+    }
+  }
+
+  .md-button.md-primary.md-raised {
+    height: 51px;
+    width: 256px;
+    font-size: 20px;
+  }
+
+  .ff-w-100 {
+    text-align: right;
+
+    .ff-forgot-pw-btn {
+      color: $grey_300 !important;
+      width: 170px;
+
+      &:hover {
+        color: $black !important;
+        background-color: $grey_200;
+      }
+    }
+  }
+
+  .ff-login-form {
+    margin: 0 auto;
+    width: 330px;
+
+    input, .md-input.ng-invalid.ng-dirty {
+      font-size: 20px;
+      border: none;
+      border-bottom: solid 1px $grey_200;
+      text-align: center;
+      outline: none !important;
+      border-width: 0 0 1px;
+    }
+
+    md-input-container.md-input-focused .md-input {
+      border-color: $pink_200 !important;
+      border-width: 0 0 2px;
+    }
+
+    .ff-keep-signed {
+      margin-top: 50px;
+    }
+
+    input:focus::-webkit-input-placeholder { color:transparent; }
+    input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+    input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+    input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+    /* ERROR MESSAGE md-toolbar:not(.md-menu-toolbar)*/
+    .md-warn {
+      margin: 0px auto;
+      width: 260px;
+      padding: 0px;
+      min-height: 0px;
+      height: 0px;
+      position: relative;
+      background-color: $white;
+      color: $red;
+
+      p {
+        font-size: 16px;
+        width: 100%;
+        position: absolute;
+        margin: 0;
+        padding: 0 10px;
+        top: -20px;
+      }
+    }
+  }
+}

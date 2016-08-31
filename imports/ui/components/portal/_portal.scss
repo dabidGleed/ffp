@@ -1,0 +1,382 @@
+.ff-sidenav {
+  width: 205px;
+  min-width: 205px;
+  max-width: 205px;
+}
+
+md-content.ff-table {
+  font-size: 15px;
+
+  .ff-table-h {
+    height: 48px;
+    color: $grey_400;
+    font-weight: 500;
+    line-height: 40px;
+    padding: 4px 15px 0 15px;
+  }
+
+  md-list {
+    padding: 0 0 10px 0;
+
+    md-list-item {
+      padding: 0 15px;
+      color: $grey_300;
+      line-height: 25px;
+      overflow-wrap: break-word;
+      border-bottom: 1px solid $grey_200;
+
+      .md-button.md-icon-button {
+        &:hover {
+          color: $grey_400;
+        }
+      }
+    }
+
+    .ff-table-custom-q {
+      padding: 8px 15px 8px 0;
+    }
+  }
+}
+
+// Subheader in a table style
+.ff-tablesubheader .md-subheader-inner {
+  height: 36px;
+  overflow: hidden;
+  font-size: 15px;
+  color: $grey_400;
+  padding: 6px 30px !important;
+  border-bottom: 1px solid $grey_200;
+
+  .ff-text,
+  .ff-actions,
+  .ff-imgcheck,
+  .ff-minitext {
+    float: left;
+    height: 100%;
+  }
+
+  .ff-imgcheck {
+    width: 50px;
+    md-checkbox {
+      margin: 8px 0 3px 5px;
+    }
+  }
+
+  .ff-text {
+    width: 184px;
+    padding-top: 11px;
+
+    &.ff-attach-col {
+      width: 60px;
+    }
+
+    &.ff-subject-col {
+      width: 350px;
+    }
+  }
+
+  .ff-minitext {
+    width: 80px;
+    padding-top: 8px;
+  }
+}
+
+// Infinite scroll list styled as table rows
+.ff-tablelist {
+  width: 100%;
+  margin-bottom: 10px;
+  .ff-tablerow {
+    height: 50px;
+    color: $grey_300;
+    overflow: hidden;
+    padding: 0 8px 0 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid $grey_200;
+
+    .md-icon-button {
+      float: left;
+      width: 40px;
+      height: 40px;
+
+      i.material-icons {
+        color: $grey_300;
+      }
+    }
+
+    .ff-text,
+    .ff-actions,
+    .ff-imgcheck,
+    .ff-minitext,
+    .ff-attach-col {
+      float: left;
+      height: 100%;
+    }
+
+    .ff-imgcheck {
+      width: 50px;
+      position: relative;
+
+      md-checkbox {
+        top: 15px;
+        left: 5px;
+        position: absolute;
+      }
+
+      img {
+        top: 5px;
+        left: -5px;
+        width: 38px;
+        height: 38px;
+        position: absolute;
+      }
+
+      &:hover,
+      &.active {
+        img {
+          display: none;
+        }
+      }
+    }
+
+    .ff-text {
+      width: 186px;
+      padding-top: 16px;
+
+      &.ff-attach-col {
+        width: 60px;
+      }
+
+      &.ff-subject-col {
+        width: 350px;
+      }
+    }
+
+    .ff-minitext {
+      width: 80px;
+      padding-top: 16px;
+    }
+
+    .ff-actions {
+      .md-icon-button {
+        margin: 0;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+// FAB inside table like repeater
+.ff-fabcontainer {
+  right: 30px;
+  bottom: 30px;
+  position: absolute;
+
+  &.inactive {
+    display: none;
+  }
+
+  &.active {
+    display: block;
+  }
+
+  .md-button.md-raised {
+    background-color: $blue_500;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $blue_400;
+    }
+
+    &.ff-warndelete:hover,
+    &.ff-warndelete:active,
+    &.ff-warndelete:focus {
+      background-color: $red;
+    }
+
+    i.material-icons {
+      color: $white;
+    }
+
+  }
+}
+
+// Radio buttons inside dropdown menus
+.ff-radioinmenu {
+  margin-top: 5px;
+}
+
+// Expandable search
+.ff-searchinput {
+  margin: 0;
+  top: 15px;
+  right: 40px;
+  width: 175px;
+  height: 40px;
+  position: absolute;
+  background: $blue_500;
+
+  .md-input {
+    color: $white;
+    border-color: $white;
+  }
+
+  &.md-input-focused {
+    .md-input {
+      border-color: $white !important;
+    }
+  }
+}
+
+.ff-navitem {
+  .md-button {
+    border-radius: 0;
+  }
+
+  a,
+  a:link,
+  a:visited {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: $black;
+    display: block;
+    text-align: left;
+    line-height: 16px;
+    font-weight: normal;
+    text-transform: none;
+  }
+
+  a:hover,
+  a:active,
+  a.active {
+    color: $white;
+    background-color: $pink_200 !important;
+
+    .ff-navicon {
+      color: $white;
+    }
+  }
+
+  &.ff-signout {
+    .md-button {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      text-align: left;
+      color: $grey_400;
+      line-height: 24px;
+      text-transform: none;
+
+      .ff-navicon {
+        color: $grey_400;
+      }
+
+      &:hover,
+      &:active {
+        color: $white;
+        background-color: $pink_200 !important;
+
+        .ff-navicon {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.ff-navicon {
+  float: left;
+  margin: 15px;
+  color: $black;
+}
+
+.ff-navtext {
+  padding: 15px 0;
+  line-height: 24px;
+}
+
+.ff-navtextdouble {
+  line-height: 14px;
+}
+
+.ff-container {
+  padding: 7px;
+  position: relative;
+
+  width: 965px;
+  min-width: 965px;
+  max-width: 965px;
+}
+
+.ff-logo {
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.ff-content-toolbar {
+  color: $black !important;
+  background: $white !important;
+}
+
+.md-toolbar-tools.ff-header {
+  color: $black !important;
+  background-color: $white !important;
+}
+
+.ff-schoolname {
+  width: 100%;
+  text-align: center;
+}
+
+footer {
+  max-width: 965px;
+}
+
+footer > div {
+  width: 525px;
+  color: $grey_300;
+  padding: 0 6px 13px 0 ;
+  margin: 0 auto;
+  font-size: 11px;
+  text-align: center;
+}
+
+.tu-logo {
+  img {
+    width: 145px;
+    height: initial;
+    margin: 15px auto;
+  }
+}
+
+md-tabs-wrapper {
+  border-color: $blue_300 !important;
+  border-width: 1px 0 0 0 !important;
+}
+
+md-fab-trigger > button.md-fab, .md-ripple-container {
+  i.material-icons {
+    padding-top: 17px;
+  }
+}
+
+.md-fab {
+  i.material-icons {
+    padding-top: 7px;
+  }
+  &.sub-fab {
+    i.material-icons {
+      font-size: 18px;
+      padding-top: 10px;
+    }
+  }
+}
+
+@import "../dashboard/_dashboard.scss";
+@import "../search/_search.scss";
+@import "../mailbox/_mailbox.scss";
+@import "../customise/_customise.scss";
+@import "../activities/_activities.scss";
+@import "../account/_account.scss";

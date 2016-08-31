@@ -1,0 +1,20 @@
+<div class="range-slider-container">
+  <div class="range-slider-left">
+    <md-slider
+      min="{{min}}"
+      step="{{step}}"
+      max="{{lowerMax}}"
+      ng-model="lowerValue"
+      aria-label="upperValue">
+    </md-slider>
+  </div>
+  <div class="range-slider-right" ng-style="{width: upperWidth}">
+    <md-slider
+      max="{{max}}"
+      step="{{step}}"
+      min="{{upperMin}}"
+      ng-model="upperValue"
+      aria-label="upperValue">
+    </md-slider>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+not-found {
+  height: 100%;
+  text-align: center;
+  background-color: $grey_100;
+
+  img {
+    margin-top: 7%;
+  }
+
+  h1 {
+    margin-top: 30px;
+    font-weight: normal;
+    margin-bottom: 60px;
+  }
+
+  .md-button.md-raised {
+    height: 72px;
+    padding: 0 30px;
+    font-size: 20px;
+    line-height: 72px;
+    color: $black !important;
+    background-color: $white !important;
+  }
+}

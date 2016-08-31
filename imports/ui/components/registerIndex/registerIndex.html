@@ -1,0 +1,67 @@
+<section layout="row" flex>
+  <div flex="33">
+    <img alt="Rocket" class="ff-rocket" src="/images/rocket.png">
+  </div>
+  <div flex="66">
+    <h1 class="ff-reg-main-h">
+      Want to give back to your school or college? Let's keep in touch
+    </h1>
+
+    <md-radio-group class="ff-reg-1" ng-model="registerIndex.type">
+      <div layout="row" flex>
+        <div
+          flex="50"
+          md-whiteframe
+          class="ff-left"
+          layout-align="center center">
+          <md-radio-button flex ng-value="'student'">
+            I'm a current student
+          </md-radio-button>
+        </div>
+
+        <div
+          flex="50"
+          md-whiteframe
+          class="ff-right"
+          layout-align="center center">
+          <md-radio-button flex ng-value="'alumni'">
+            I've left my school
+          </md-radio-button>
+        </div>
+      </div>
+    </md-radio-group>
+
+    <md-autocomplete
+      class="ff-reg-1"
+      md-no-cache="true"
+      md-item-text="item.School_name__c"
+      md-selected-item="registerIndex.school"
+      md-search-text="registerIndex.searchText"
+      ng-disabled="!registerIndex.selectedType()"
+      placeholder="What is the name of your school?"
+      md-items="item in registerIndex.querySearch(registerIndex.searchText)">
+      <md-item-template>{{item.School_name__c}}</md-item-template>
+    </md-autocomplete>
+
+    <div ng-if="registerIndex.showNotFound()">
+      <p>
+        <i class="material-icons ff-message-icon">sentiment_dissatisfied</i>
+        Shucks, it looks like your school doesn't yet have a network with us.
+        We're working hard to get every school in the country set up with an
+        alumni network to help support current students with their career and
+        life choices.
+      </p>
+      <p class="ff-style-m-b-50">
+        You can still join the network and then, as soon as your school is set
+        up with a network we'll be in touch.
+      </p>
+    </div>
+
+    <md-button
+      class="md-raised md-primary"
+      ng-click="registerIndex.register()"
+      ng-disabled="!registerIndex.isValid()">
+      Get in touch
+    </md-button>
+  </div>
+</section>

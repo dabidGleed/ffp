@@ -1,0 +1,23 @@
+<h1 class="ff-reg-main-h">Support offered</h1>
+
+<md-chips
+  md-autocomplete-snap
+  md-require-match="true"
+  ng-model="registerSteps2.supportOffered">
+  <md-autocomplete
+    md-item-text="i"
+    placeholder="Support offered"
+    md-search-text="registerSteps2.searchSupport"
+    md-selected-item="registerSteps2.selectedSupport"
+    md-items="i in registerSteps2.querySearch(registerSteps2.searchSupport)">
+    <span md-highlight-text="registerSteps2.searchSupport">{{i.label}}</span>
+  </md-autocomplete>
+  <md-chip-template>{{$chip.label}}</md-chip-template>
+</md-chips>
+
+<md-input-container class="md-block" ng-if="registerSteps2.showOther()">
+  <label>Other support offered</label>
+  <textarea
+    ng-model="registerSteps2.otherSupportOffered"
+    ng-change="registerSteps2.update('otherSupportOffered')"></textarea>
+</md-input-container>

@@ -1,0 +1,65 @@
+<md-content layout="row" class="ff-style-m-5p" layout-padding layout-align="center start">
+
+  <md-whiteframe
+    layout="column"
+    flex-md="50"
+    flex-lg="50"
+    flex-gt-lg="33"
+    class="md-whiteframe-z2 ff-login">
+    <md-toolbar
+      class="ff-sign-in-header"
+      layout="column"
+      layout-align="center">
+      <div class="ff-w-100" layout-align="end">
+        <a class="md-button ff-forgot-pw-btn" href="/forgot">Forgot password?</a>
+      </div>
+      <div layout="row" layout-align="center">
+        <img src="/images/rocket2.png" alt="Future First">
+      </div>
+    </md-toolbar>
+
+    <div layout="column">
+      <form
+        class="ff-login-form"
+        name="loginForm"
+        layout="column"
+        layout-fill
+        layout-padding
+        layout-margin>
+        <md-input-container md-no-float>
+          <input
+            type="text"
+            ng-model="login.credentials.email"
+            aria-label="email"
+            required placeholder="Email" />
+        </md-input-container>
+        <md-input-container md-no-float>
+          <input
+            type="password"
+            ng-model="login.credentials.password"
+            aria-label="password"
+            required placeholder="Password" />
+        </md-input-container>
+        <md-toolbar
+          ng-show="login.error"
+          class="md-warn ff-style-tcentered"
+          layout="row">
+          <p class="md-body-1">{{ login.error }}</p>
+        </md-toolbar>
+        <div layout="column" layout-align="space-between center">
+          <md-button
+            class="md-raised md-primary"
+            ng-click="login.login()"
+            aria-label="login"
+            ng-disabled="login.loginForm.$invalid()">
+            Sign In
+          </md-button>
+           <div layout="row" layout-align="center" class="ff-keep-signed">
+            <md-checkbox aria-label="Keep me signed in"></md-checkbox>
+            <label>Keep me signed in</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </md-whiteframe>
+</md-content>

@@ -1,0 +1,177 @@
+<section layout="row" flex>
+  <div flex="33">
+    <img
+      alt="Rocket"
+      class="ff-rocket"
+      src="/images/rocket.png"
+      ng-if="!registerStudent.showSchoolLogo()">
+
+    <img
+      alt="School Logo"
+      ng-if="registerStudent.showSchoolLogo()"
+      ng-src="{{registerStudent.school.School_logo__c}}">
+  </div>
+  <div flex="66">
+    <h1 ng-style="registerStudent.getSchoolTextColour()">
+      {{registerStudent.School_name__c}}
+    </h1>
+
+    <h1 class="ff-reg-main-h">Invites you to join our alumni network</h1>
+
+    <form name="studentform">
+      <div layout="row" flex>
+        <div flex="51" layout="column">
+          <md-input-container class="md-block">
+            <label>First name</label>
+            <input
+              required
+              type="text"
+              name="first"
+              ng-model="registerStudent.formData.firstName">
+            <div ng-messages="studentform.first.$error">
+              <div ng-message-exp="['required']">
+                You must enter your first name
+              </div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Last name</label>
+            <input
+              required
+              type="text"
+              name="last"
+              ng-model="registerStudent.formData.lastName">
+            <div ng-messages="studentform.first.$error">
+              <div ng-message-exp="['required']">
+                You must enter your last name
+              </div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Email</label>
+            <input
+              required
+              type="email"
+              name="email"
+              minlength="10"
+              maxlength="100"
+              ng-pattern="/^.+@.+\..+$/"
+              ng-model="registerStudent.formData.email">
+            <div class="ff-hint">
+              We'll send you an email to verify this address
+            </div>
+            <div ng-messages="studentform.email.$error">
+              <div
+                ng-message-exp="['required','minlength','maxlength','pattern']">
+                You must enter a valid email address
+              </div>
+            </div>
+          </md-input-container>
+
+          <div layout="column" class="ff-reg-datepicker">
+            <label class="md-caption">Date of birth</label>
+            <md-datepicker
+              ng-model="registerStudent.formData.dob">
+            </md-datepicker>
+          </div>
+
+          <md-input-container class="md-block">
+            <label>Gender</label>
+            <md-select
+              aria-label="Gender"
+              ng-model="registerStudent.formData.gender">
+              <md-option
+                ng-repeat="gender in registerStudent.genders"
+                value="{{gender.value}}">
+                {{gender.label}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Mobile</label>
+            <input
+              type="text"
+              ng-model="registerStudent.formData.mobile">
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>What year are you in?</label>
+            <md-select
+              aria-label="Year"
+              ng-model="registerStudent.formData.currentYear">
+              <md-option
+                value="{{yearGroup.value}}"
+                ng-repeat="yearGroup in registerStudent.yearGroups">
+                {{yearGroup.label}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Leaving year</label>
+            <md-select
+              aria-label="Leaving year"
+              ng-model="registerStudent.formData.leavingYear">
+              <md-option
+                value="{{year.value}}"
+                ng-repeat="year in registerStudent.leavingYears">
+                {{year.label}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+
+        <div flex="33" class="md-block">
+          <img
+            alt="Avatar"
+            class="ff-avatar"
+            ng-if="registerStudent.formData.image"
+            ng-src="{{registerStudent.formData.image}}">
+
+          <div class="ff-reg-add-photo" ng-if="!registerStudent.formData.image">
+            <i class="material-icons">perm_identity</i>
+          </div>
+        </div>
+
+      </div>
+
+      <md-chips
+        md-autocomplete-snap
+        md-require-match="true"
+        class="ff-reg-input-f md-block ff-reg-m-input"
+        ng-model="registerStudent.formData.futurePlans">
+        <md-autocomplete
+          md-item-text="i"
+          md-floating-label="Support offered"
+          md-search-text="registerStudent.searchPlan"
+          md-selected-item="registerStudent.selectedPlan"
+          md-items="i in registerStudent.querySearch(registerStudent.searchPlan)">
+          <span md-highlight-text="registerStudent.searchPlan">
+            {{i.label}}
+          </span>
+        </md-autocomplete>
+        <md-chip-template>{{$chip.label}}</md-chip-template>
+      </md-chips>
+
+      <md-divider class="ff-reg-divider"></md-divider>
+
+      <div layout="row" flex>
+        <md-button
+          class="md-raised md-primary"
+          ng-disabled="studentform.$invalid"
+          ng-click="registerStudent.register()"
+          ng-style="registerStudent.getSchoolBackgroundColour()">
+          Join
+        </md-button>
+        <md-button ui-sref="register.index">Cancel</md-button>
+        <span flex="65" class="ff-reg-policy">
+          By signing up you are accepting the
+          <a href="#" target="_blank"><b>Privacy Policy</b></a>
+        </span>
+      </div>
+    </form>
+  </div>
+</section>

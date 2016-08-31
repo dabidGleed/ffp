@@ -1,0 +1,552 @@
+<md-card md-whiteframe class="ff-card" id="ff-card">
+  <md-toolbar class="md-card-image">
+    <div class="md-toolbar-tools">
+      <h2>{{search.alumni.length}} alumni found</h2>
+      <md-button
+        aria-label="Select all"
+        ng-click="search.selectAll()"
+        ng-hide="search.hasElementsCheckedClass() === 'active'">
+        SELECT ALL
+      </md-button>
+      <md-button
+        aria-label="Select none"
+        ng-click="search.selectNone()"
+        ng-show="search.hasElementsCheckedClass() === 'active'">
+        SELECT NONE
+      </md-button>
+      <span flex=""></span>
+      <md-button aria-label="Clear filters">
+        CLEAR FILTERS
+      </md-button>
+      <md-button
+        aria-label="Filters"
+        class="md-icon-button"
+        ng-click="search.toggleTab()">
+        <i class="material-icons">filter_list</i>
+      </md-button>
+      <md-menu
+        md-offset="0 50"
+        class="md-icon-button"
+        md-position-mode="target-right target">
+        <md-button
+          class="md-icon-button"
+          aria-label="Select columns"
+          ng-click="search.openMenu($mdOpenMenu, $event)">
+          <i class="material-icons">view_column</i>
+        </md-button>
+        <md-menu-content>
+          <md-radio-group ng-model="search.columns">
+            <md-menu-item>
+              <md-button aria-label="Job title">
+                <md-radio-button value="job" class="ff-radioinmenu">
+                  Job title
+                </md-radio-button>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button aria-label="Current status">
+                <md-radio-button value="status" class="ff-radioinmenu">
+                  Current status
+                </md-radio-button>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button aria-label="Mobile number">
+                <md-radio-button value="mobile" class="ff-radioinmenu">
+                  Mobile number
+                </md-radio-button>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button aria-label="Leaving year">
+                <md-radio-button value="leaving" class="ff-radioinmenu">
+                  Leaving year
+                </md-radio-button>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button aria-label="Undergraduate institution">
+                <md-radio-button value="undergraduate" class="ff-radioinmenu">
+                  Undergraduate institution
+                </md-radio-button>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button aria-label="Current employer">
+                <md-radio-button value="employer" class="ff-radioinmenu">
+                  Current employer
+                </md-radio-button>
+              </md-button>
+            </md-menu-item>
+          </md-radio-group>
+        </md-menu-content>
+      </md-menu>
+      <md-button class="md-icon-button" aria-label="Download CSV">
+        <i class="material-icons">file_download</i>
+      </md-button>
+      <md-input-container class="ff-searchinput" ng-show="search.showSearch">
+        <input ng-model="user.email" type="search" aria-label="Email">
+      </md-input-container>
+      <md-button
+        aria-label="Search"
+        class="md-icon-button"
+        ng-click="search.toggleSearch()">
+        <i class="material-icons">search</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <div ng-show="search.showFilterTabs" class="ff-filterswrap">
+    <md-tabs
+      md-border-bottom
+      md-dynamic-height
+      md-stretch-tabs="always">
+
+      <md-tab label="EDUCATION">
+        <md-content class="md-padding">
+          <div flex layout="row">
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+
+
+
+        <!-- Todo, wait for github fix for version 1.0.9 -->
+        <label>Vegetables</label>
+        <md-select ng-model="selectedVegetables" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple="">
+          <md-select-header class="demo-select-header">
+            <input ng-model="searchTerm" type="search" placeholder="Search for a vegetable.." class="demo-header-searchbox md-text">
+          </md-select-header>
+          <md-optgroup label="vegetables">
+            <md-option ng-value="vegetable" ng-repeat="vegetable in vegetables |
+              filter:searchTerm">{{vegetable}}</md-option>
+          </md-optgroup>
+        </md-select>
+
+
+
+
+              </md-input-container>
+            </div>
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Post 16</label>
+                <md-select ng-model="user.state2">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Apprenticeship</label>
+                <md-select ng-model="user.state3">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+          <div flex layout="row">
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Undergraduate institute</label>
+                <md-select ng-model="user.state3">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Undergraduate subject</label>
+                <md-select ng-model="user.state3">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+          <div flex layout="row">
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Postgraduate institute</label>
+                <md-select ng-model="user.state3">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Postgraduate subject</label>
+                <md-select ng-model="user.state3">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+        </md-content>
+      </md-tab>
+
+      <md-tab label="EMPLOYMENT">
+        <md-content class="md-padding">
+          <div flex layout="row">
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Job title</label>
+                <md-select ng-model="user.state1">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Job sector</label>
+                <md-select ng-model="user.state2">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Employer</label>
+                <md-select ng-model="user.state3">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+        </md-content>
+      </md-tab>
+
+      <md-tab label="GENERAL">
+        <md-content class="md-padding">
+          <div flex layout="row">
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Gender</label>
+                <md-select ng-model="user.state1">
+                  <md-option
+                    ng-repeat="g in search.gender"
+                    value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Able to visit in person</label>
+                <md-select ng-model="user.state2">
+                  <md-option value="{{g}}" ng-repeat="g in search.gender">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Current occupation</label>
+                <md-select ng-model="user.state3">
+                  <md-option value="{{g}}" ng-repeat="g in search.gender">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+          <div flex layout="row">
+            <md-content flex="66" layout="row" class="md-padding">
+              <range-slider
+                step="1"
+                flex="46"
+                min-gap="1"
+                min="search.min"
+                max="search.max"
+                lower-value="search.lower"
+                upper-value="search.upper">
+              </range-slider>
+              <div class="ff-style-m-l-15 slider-indicator" flex="20">{{search.lower}} - {{search.upper}}</div>
+            </md-content>
+            <div flex="33" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Support offered</label>
+                <md-select ng-model="user.state4">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+
+          <div flex layout="row" class="md-padding">
+            <div flex="33" layout="column">
+              <label class="md-caption">Signed up from</label>
+              <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+            </div>
+
+            <div flex="33" layout="column">
+              <label class="md-caption">Until</label>
+              <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+            </div>
+          </div>
+        </md-content>
+      </md-tab>
+
+      <md-tab label="ACTIVITY HISTORY">
+        <md-content class="md-padding">
+          <div flex layout="row">
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Alumni activity type</label>
+                <md-select ng-model="user.state1">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Alumni activity</label>
+                <md-select ng-model="user.state2">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+          <div flex layout="row" class="ff-style-m-l-15">
+            <div flex="33" layout="column">
+              <label class="md-caption">From</label>
+              <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+            </div>
+            <div flex="33" layout="column">
+              <label class="md-caption">Until</label>
+              <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+            </div>
+            <div flex="33">
+              <md-input-container class="md-block" flex>
+                <label>Has attended previous activity</label>
+                <md-select ng-model="user.state2">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+        </md-content>
+      </md-tab>
+
+      <md-tab label="CUSTOM QUESTIONS">
+        <md-content class="md-padding">
+          <div flex layout="row">
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Question 1</label>
+                <md-select ng-model="user.state1">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Question 2</label>
+                <md-select ng-model="user.state2">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+          <div flex layout="row">
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Question 3</label>
+                <md-select ng-model="user.state1">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div flex="1" layout-padding>
+              <md-input-container class="md-block" flex>
+                <label>Question 4</label>
+                <md-select ng-model="user.state2">
+                  <md-option ng-repeat="g in search.gender" value="{{g}}">
+                    {{g}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </div>
+
+  <md-content class="ff-table">
+    <div class="ff-table-h" layout="row" md-whiteframe="1">
+      <div class="ff-imgcheck" flex="10">
+        <md-checkbox
+          aria-label="Select all"
+          ng-model="search.selectAllCheck"
+          ng-click="search.toggleSelectAll()">
+        </md-checkbox>
+      </div>
+      <div flex="15">Name</div>
+      <div flex="20">Surname</div>
+      <div flex="30" >Email</div>
+      <div flex="15" >Mobile</div>
+    </div>
+    <md-divider></md-divider>
+  <!--   <md-subheader class="ff-tablesubheader" md-whiteframe="1">
+      <div class="ff-imgcheck">
+        <md-checkbox
+          aria-label="Select all"
+          ng-model="search.selectAllCheck"
+          ng-click="search.toggleSelectAll()">
+        </md-checkbox>
+      </div>
+      <div class="ff-text">Name</div>
+      <div class="ff-text">Surname</div>
+      <div class="ff-text">Email</div>
+      <div class="ff-text">Mobile Number</div>
+    </md-subheader>
+ -->
+    <md-virtual-repeat-container class="ff-tablelist" ng-style="search.height">
+      <div
+        class="ff-tablerow"
+        md-virtual-repeat="a in search.alumni | filter: { display: true }">
+
+        <div
+          class="ff-imgcheck"
+          ng-class="search.hasElementsCheckedClass()"
+          flex="10">
+          <md-checkbox ng-model="a.isChecked" aria-label="Select"></md-checkbox>
+          <img src="{{a.image}}">
+        </div>
+
+        <div flex="15">{{a.Name}}</div>
+        <div flex="20">{{a.Last_name__c}}</div>
+        <div flex="30">{{a.Email__c}}</div>
+        <div flex="15">{{a.Mobile__c}}</div>
+
+        <div class="ff-actions">
+          <md-button
+            class="md-icon-button"
+            aria-label="Notes"
+            ng-click="search.showNotesSheet(a.notes)">
+            <i class="material-icons">note</i>
+          </md-button>
+          <md-button class="md-icon-button" ui-sref="portal.search.profile">
+            <i class="material-icons">perm_identity</i>
+          </md-button>
+          <md-menu
+            md-offset="0 50"
+            md-position-mode="target-right target">
+
+            <md-button
+              class="md-icon-button"
+              aria-label="Open menu"
+              ng-click="search.openMenu($mdOpenMenu, $event)">
+              <i class="material-icons">more_vert</i>
+            </md-button>
+
+            <md-menu-content>
+              <md-menu-item>
+                <md-button aria-label="Compose email">
+                  <i class="material-icons">mode_edit</i>
+                  Compose mail
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button aria-label="Invite to a new activity">
+                  <i class="material-icons">today</i>
+                  Invite to a new activity
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button aria-label="Invite to an existing activity">
+                  <i class="material-icons">today</i>
+                  Invite to an existing activity
+                </md-button>
+              </md-menu-item>
+              <md-divider></md-divider>
+              <md-menu-item>
+                <md-button aria-label="Remove alumnus">
+                  <i class="material-icons">delete</i>
+                  Remove alumnus
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </div>
+      </div>
+    </md-virtual-repeat-container>
+  </md-content>
+
+  <div class="ff-fabcontainer" ng-class="search.hasElementsCheckedClass()">
+    <md-fab-speed-dial md-direction="up" class="md-fling">
+      <md-fab-trigger>
+        <md-button aria-label="Menu" class="md-fab">
+          <i class="material-icons">menu</i>
+        </md-button>
+      </md-fab-trigger>
+      <md-fab-actions>
+        <md-button
+          class="md-fab md-raised md-mini"
+          aria-label="Invite to activity">
+          <md-tooltip md-direction="left sub-fab">
+            Invite to activity
+          </md-tooltip>
+          <i class="material-icons">today</i>
+        </md-button>
+        <md-button
+          aria-label="Compose mail"
+          class="md-fab md-raised md-mini sub-fab">
+          <md-tooltip md-direction="left">Compose mail</md-tooltip>
+          <i class="material-icons">mode_edit</i>
+        </md-button>
+        <md-button
+          aria-label="Send SMS"
+          class="md-fab md-raised md-mini sub-fab">
+          <md-tooltip md-direction="left">Send SMS</md-tooltip>
+          <i class="material-icons">textsms</i>
+        </md-button>
+        <md-button
+          aria-label="Remove alumni"
+          class="md-fab md-raised md-mini ff-warndelete sub-fab">
+          <md-tooltip md-direction="left">Remove alumni</md-tooltip>
+          <i class="material-icons">delete</i>
+        </md-button>
+      </md-fab-actions>
+    </md-fab-speed-dial>
+  </div>
+</md-card>

@@ -1,0 +1,154 @@
+<md-dialog aria-label="Add custom question" class="ff-popup ff-custom-question">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 flex>Add custom question</h2>
+      <md-button
+        aria-label="Close"
+        class="md-icon-button"
+        ng-click="questionnew.cancel()">
+        <i class="material-icons">close</i>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content layout-padding>
+      <div layout="row" layout-padding>
+        <md-input-container flex="70" class="md-block">
+          <label>Question</label>
+          <input>
+          <div ng-messages="">
+            <div ng-message-exp="['required']">
+              You must enter your first name
+            </div>
+          </div>
+        </md-input-container>
+
+        <md-input-container flex="30" class="md-block">
+          <label>Question Type</label>
+          <md-select
+            aria-label="Question Type"
+            ng-model="">
+            <md-option
+              ng-repeat=""
+              value="{{customQuestion.type}}">
+              {{gender.label}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+      <div flex="100" class="ff-add-question-tip" style="font-size: 12px">
+        <p><b>Type</b> means the type of the question. Available options:</p>
+          <ul>
+            <li>
+              Text (where an alumnus can enter any response they like).
+            </li>
+            <li>
+              Select (where an alumnus can select one of several options).
+            </li>
+            <li>
+              Multi-select (where an alumnus can select several out of several
+              options).
+            </li>
+        </ul>
+      </div>
+
+    <md-divider></md-divider>
+
+    <md-content class="ff-table">
+      <div class="ff-table-h" layout="row">
+        <div flex="75">Option</div>
+        <div flex="15" class="ff-style-p-l-25">Order</div>
+        <div flex="10" class="ff-style-p-l-15">Actions</div>
+      </div>
+      <md-divider></md-divider>
+      <md-list >
+        <md-list-item
+          layout="row" layout-wrap>
+          <div flex="75"
+            class="ff-table-custom-q"
+            layout-wrap>
+            First option
+          </div>
+          <div flex="10" layout="row">
+            <div flex>
+              <md-button
+                ng-if="!$first"
+                class="md-icon-button"
+                aria-label="Move up">
+                <i class="material-icons">keyboard_arrow_up</i>
+              </md-button>
+            </div>
+            <div flex="50">
+              <md-button
+                ng-if="!$last"
+                class="md-icon-button"
+                aria-label="Move down">
+                <i class="material-icons">keyboard_arrow_down</i>
+              </md-button>
+            </div>
+          </div>
+
+          <div flex="15" class="ff-style-p-l-10"
+            layout="row"
+            layout-align="end">
+            <span></span>
+            <div flex="33">
+              <md-button
+                class="md-icon-button"
+                aria-label="Edit"
+                ng-click="">
+                <i class="material-icons">mode_edit</i>
+              </md-button>
+            </div>
+            <div flex="33">
+              <md-button
+                class="md-icon-button"
+                aria-label="Delete">
+                <i class="material-icons">delete</i>
+              </md-button>
+            </div>
+          </div>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-content>
+
+    <div layout="row" class="ff-style-m-t-30">
+      <md-input-container flex="85" class="md-block ff-style-p-r-15">
+        <label>New option</label>
+        <input
+          required=""
+          type="text"
+          name="first">
+        <div ng-messages="">
+          <div ng-message-exp="['required']">
+            You must enter your first name
+          </div>
+        </div>
+      </md-input-container>
+       <!-- // TO BE REMOVED <md-button
+        class="md-icon-button"
+        aria-label="Filters"
+        ng-click="">
+        <i class="material-icons">add</i>
+      </md-button> -->
+      <span flex></span>
+      <md-button
+        class="ff-style-m-t-15"
+        aria-label="Add">
+        Add
+      </md-button>
+    </div>
+
+    <md-button
+      class="md-raised md-primary ff-popup-btn"
+      aria-label="Submit">
+      Add question
+    </md-button>
+    <md-button
+      aria-label="Cancel"
+      ng-click="questionnew.cancel()">
+      Cancel
+    </md-button>
+  </md-dialog-content>
+</md-dialog>
